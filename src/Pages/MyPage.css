@@ -1,0 +1,154 @@
+body {
+    background-color: #212020;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.logo {
+    float: left;
+    margin-right: 20px;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+.top_component{
+    float: right;
+    margin-bottom: 100px;
+}
+.search_box{
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.search_box button{
+    height: 30px;
+    width: 50px;
+    background-color: #222fdeb4; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.logout{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.logout button{
+    height: 29px;
+    width: 75px;
+    background-color: #222fdeb4; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+table {
+    margin:0 auto;
+    border-collapse: collapse;
+    width: 350px;
+    height: 300px;
+    justify-content: center;
+}
+.mypage-bottom{
+    position: absolute;
+    top:15%;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+#uploadedImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position:relative;
+    z-index: 1;
+}
+
+#fileInput {
+    display: none;
+}
+
+#removeBtn { /*삭제 버튼*/
+    position: fixed;
+    left: 54%;
+    top: 7%;
+    width: 45px;
+    height: 45px;
+    z-index: 2;
+}
+
+#mbtich,#genrech,#idch,#nicknamech {
+    width: 40px;
+    height: 40px;
+}
+
+#fileInputLabel img {/*추가 버튼*/
+    position: fixed;
+    left: 54%;
+    top: 7%;
+    width: 45px;
+    height: 45px;
+    z-index: 2;
+}
+
+#MBTI_label, #genre_label, #id_label,#nickname_label{
+background-color: #464545;
+padding: 5px; 
+border-radius: 5px;
+margin-right: 20px;
+text-align: center;
+color:#ffffff;
+font-weight: 600;
+}
+
+.saved_movie{
+    padding-left: 10px;
+    white-space: nowrap;
+    width: 900px;
+    height: 280px;
+    overflow-x: scroll;
+}
+.my_review{
+    width: 900px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+.my_review .review_space{
+  height: 400px;
+    padding-left:10px;
+    overflow-y: scroll;
+    border: none;
+}
+
+.my_review .review{
+    border: none;
+    margin-bottom: 100px;
+    width: 850px;
+    height: 150px;
+    background-color: #ffffff;
+    border: none;
+    margin-bottom: 30px;
+} 
+ 
+#revisebtn,#deletebtn{
+    background-color: #222fdeb4;
+    border-radius: 5px;
+    border: none;
+    font-size:15px;
+    color: #ffffff;
+    margin-bottom:20px;
+    height:30px;
+    width:50px;
+}

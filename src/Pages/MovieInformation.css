@@ -1,0 +1,201 @@
+body {
+    background-color: #212020;
+    color: #ffffff; 
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.top{
+    margin-bottom: 75px;
+}
+
+.logo {
+    float: left;
+    margin-right: 20px;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+.top_component{
+    float: right;
+}
+
+.search_box{
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.search_box button{
+    height: 30px;
+    width: 50px; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.logout{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.logout button{
+    height: 29px;
+    width: 75px;
+    background-color: #222fdeb4; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.movie-information-bottom{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.poster{
+    float: left;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.poster img{
+    width: 300px;
+}
+
+.information{
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.component{
+    overflow: hidden;
+    width: 650px;
+}
+
+.component h3{
+    line-height: 0.6;
+}
+
+.component p{
+    line-height: 0.9;
+}
+
+.component #header{
+    float: left;
+    margin-right: 10px;
+    color: #464545;
+}
+
+.component #content{
+    float: left;
+    margin-right: 10px;
+}
+
+.summary{
+    width: 950px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.summary #header{
+    color: #464545;
+}
+
+.review_write{
+    width: 950px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.review_write #header{
+    color: #464545;
+}
+
+.review_write textarea{
+    width: 945px;
+    height: 100px;
+    background-color: #464545; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.review_write input[type="submit"]{
+    float: right;
+    height: 30px;
+    width: 50px;
+    background-color: #222fdeb4; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+/*좋아요 버튼 css (제목 옆에 뜨도록 설정)*/
+.heart_wrap{
+    display: inline-block;
+}
+
+.starpoint_wrap{
+    display:inline-block;
+    margin-bottom: 20px;
+}
+.starpoint_box{position:relative;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 0 no-repeat;font-size:0;}
+.starpoint_box .starpoint_bg{display:block;position:absolute;top:0;left:0;height:18px;background:url(https://ido-archive.github.io/svc/etc/element/img/sp_star.png) 0 -20px no-repeat;pointer-events:none;}
+.starpoint_box .label_star{display:inline-block;width:10px;height:18px;box-sizing:border-box;}
+.starpoint_box .star_radio{opacity:0;width:0;height:0;position:absolute;}
+.starpoint_box .star_radio:nth-of-type(1):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(1):checked ~ .starpoint_bg{width:10%;}
+.starpoint_box .star_radio:nth-of-type(2):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(2):checked ~ .starpoint_bg{width:20%;}
+.starpoint_box .star_radio:nth-of-type(3):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(3):checked ~ .starpoint_bg{width:30%;}
+.starpoint_box .star_radio:nth-of-type(4):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(4):checked ~ .starpoint_bg{width:40%;}
+.starpoint_box .star_radio:nth-of-type(5):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(5):checked ~ .starpoint_bg{width:50%;}
+.starpoint_box .star_radio:nth-of-type(6):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(6):checked ~ .starpoint_bg{width:60%;}
+.starpoint_box .star_radio:nth-of-type(7):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(7):checked ~ .starpoint_bg{width:70%;}
+.starpoint_box .star_radio:nth-of-type(8):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(8):checked ~ .starpoint_bg{width:80%;}
+.starpoint_box .star_radio:nth-of-type(9):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(9):checked ~ .starpoint_bg{width:90%;}
+.starpoint_box .star_radio:nth-of-type(10):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(10):checked ~ .starpoint_bg{width:100%;}
+
+.blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
+
+.review_collection{
+    width: 950px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.review_collection #header{
+    color: #464545;
+}
+
+.review_collection .space{
+    overflow-y: scroll;
+    height: 200px;
+    background-color: #464545; 
+    border: none;
+    border-radius: 5px;
+    padding-left: 16px;
+    padding-top: 20px;
+}
+
+.review_collection .a_review{
+    width: 900px;
+    height: 100px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

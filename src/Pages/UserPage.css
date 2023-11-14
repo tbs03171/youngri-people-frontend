@@ -1,0 +1,128 @@
+body {
+    background-color: #212020;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.logo {
+    float: left;
+    margin-right: 20px;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+.top_component{
+    float: right;
+    margin-bottom: 100px;
+}
+
+.search_box{
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.search_box button{
+    height: 30px;
+    width: 50px;
+    background-color: #222fdeb4; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.logout{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.logout button{
+    height: 29px;
+    width: 75px;
+    background-color: #222fdeb4; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.subscribe{
+    height: 29px;
+    width: 80px;
+    background-color: #222fdeb4; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    left:45%;
+    position:fixed;
+}
+
+table {
+    margin:0 auto;
+    border-collapse: collapse;
+    width: 200px;
+    height: 300px;
+    justify-content: center;
+}
+
+.userpage-bottom{
+    position: absolute;
+    top:20%;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.profile_img {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    transform: translateX(20%);
+}
+
+.my_review{
+    width: 900px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+.my_review .review_space{
+  height: 300px;
+    padding-left:10px;
+    overflow-y: scroll;
+    border: none;
+   
+}
+
+.my_review .review{
+    border: none;
+    margin-bottom: 30px;
+    width: 850px;
+    height: 150px;
+    background-color: #ffffff;
+    border: none;
+    margin-bottom: 30px;
+} 
+#id_label{
+    background-color: #464545;
+    padding: 5px; 
+    border-radius: 5px;
+    margin-right: 20px;
+    text-align: center;
+    color:#ffffff;
+    font-weight: 600;
+    width:100px;
+}
+
+#nickname_label{
+    background-color: #464545;
+    padding: 5px; 
+    border-radius: 5px;
+    margin-right: 20px;
+    text-align: center;
+    color:#ffffff;
+    font-weight: 600;
+    width:100px;
+}

@@ -1,0 +1,86 @@
+body {
+    background-color: #212020;
+    color: #ffffff; 
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.top{
+    margin-bottom: 75px;
+}
+
+.logo {
+    float: left;
+    margin-right: 20px;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+.top_component{
+    float: right;
+}
+
+.search_box{
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.search_box select{
+    height: 30px;
+    background-color: #464545; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    margin-right: 10px;
+}
+.search_box input{
+    height: 28px;
+    background-color: #464545; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    margin-right: 10px;
+}
+.search_box button{
+    height: 30px;
+    width: 50px; 
+    background-color: #222fdeb4;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.logout{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.logout button{
+    height: 29px;
+    width: 75px;
+    background-color: #222fdeb4; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.movie-component{
+    display: inline-block;
+    text-align: center;
+    padding-right: 30px;
+    overflow: hidden;
+}
+
+#movie-poster{
+    width: 200px;
+}
+
+#movie-title{
+    width: 200px;
+    text-overflow: ellipsis;
+    text-align: center;
+}
