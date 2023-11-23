@@ -1,0 +1,118 @@
+.userSearchBody {
+    background-color: #212020;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto; /*배경 설정*/
+}
+  
+.mainLogo {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+}
+
+.buttonLogout {
+    position: absolute;
+    top: 13px;
+    right: 120px;
+    display: flex;
+}
+
+.buttonLogout button {
+    border: none;
+    background-color: transparent;
+    font-size: 13px;
+    color: #b1adad; 
+    font-weight: bold;
+}
+
+ /*검색창 다시 수정*/
+.searchBox {
+    display: flex;
+    align-items: center;
+}
+
+.searchBox1,
+.searchBox2,
+.searchBox3 {
+    height: 30px; /* 원하는 높이로 조절하세요 */
+    
+    box-sizing: border-box; /* border-box 모델 사용 */
+    /* 추가적인 스타일 */
+}
+  
+.searchBox1 {
+    position: absolute;
+    top: 58px;
+    right: 320px;
+    background-color: #464545;
+    border-radius: 10px 0px 0px 10px;
+    color: #fff;
+    border: none;
+}
+
+.searchBox2 {
+   position: absolute;
+   top: 58px;
+   right: 150px;
+   width: 170px;
+   background-color: #464545;
+    color: #fff;
+    border: none;
+    padding: 10px;
+}
+
+.searchBox3 {
+    position: absolute;
+    top: 58px;
+    right: 120px;
+    width: 30px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: #1a1919;
+    border: none;
+}
+
+.userSearchBottom {
+    position: absolute; 
+    top: 150px;
+    left: 65px;
+    color: #b1adad;
+}
+
+.searchUserContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.user{
+    overflow: hidden;
+    height: 170px;
+    background-color: #464545;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.user img{
+    float: left;
+    width: 130px;
+    margin: 20px;
+    border-radius: 50%;
+}
+
+.userInformation{
+    float: left;
+    overflow: hidden;
+    width: 150px;
+    height: 130px;
+    margin: 20px;
+}
+
+.userInformation h3{
+    line-height: 2;
+}

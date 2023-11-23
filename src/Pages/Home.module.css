@@ -1,0 +1,65 @@
+.homeContainer {
+    background-image: url(/public/img/home_theater.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+}
+  
+.mainLogo {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+}
+  
+.content {
+    position: absolute;
+    text-align: center;
+    top: 50%; /*content 정중앙 배치*/
+    left: 50%; /*content 정중앙 배치*/
+    transform: translate(-50%, -50%);
+}
+
+.content h1 {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 50px; /*h2와의 간격*/
+    color: white;
+}
+
+.content h2 {
+    font-size: 20px;
+    color: #999;
+    margin-bottom: 130px;
+}
+  
+.goLogin { /*위치*/
+    position: absolute;
+    text-align: center;
+    margin-top: 20px;
+    bottom: 35%; /*content 밑에서 35% 떨어지게 배치*/
+    left: 50%; /*content 정중앙 배치*/
+    transform: translateX(-50%);
+    
+}
+  
+.loginButton { 
+    background-color: #222fdeb4; 
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    /*font-weight: bold; 두껍게*/
+}
+  
+.loginButton:hover {
+    background-color: #222fde; /*커서 댄 후*/
+}
+  

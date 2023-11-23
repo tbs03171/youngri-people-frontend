@@ -1,0 +1,132 @@
+.myPageEditBody {
+    background-color: #212020;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto; /*배경 설정*/
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #4e4d4d; 
+    margin-top: 35px;
+}
+
+.mainLogo {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+}
+
+.searchMovie {
+    position: absolute;
+    top: 65px;
+    right: 120px;
+    display: flex;
+}
+
+.searchMovie button {
+    background-color: transparent;
+    border: none;
+}
+
+.buttonLogout {
+    position: absolute;
+    top: 13px;
+    right: 120px;
+    display: flex;
+}
+
+.buttonLogout button {
+    border: none;
+    background-color: transparent;
+    font-size: 13px;
+    color: #b1adad; 
+    font-weight: bold;
+}
+
+.myPageEditBottom{
+    position: absolute;
+    top:15%;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.myPageEditBottom table {
+    margin:0 auto;
+    border-collapse: collapse;
+    width: 500px;
+    height: 300px;
+    justify-content: center;
+    margin-top: 55px;
+}
+
+.imgContainer select{
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position:relative;
+    z-index: 1;
+}
+
+.myPageEditBottom h2{
+    color: #ffffff;
+}
+
+.label p{
+    display: inline-block;
+    width: 150px;
+    background-color: #464545;
+    padding: 5px; 
+    border-radius: 5px;
+    margin-right: 20px;
+    text-align: center;
+    color:#ffffff;
+    font-weight: 600;
+}
+
+.value p{
+    width: 250px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.value button{
+    background-color: #464545;
+    color: #ffffff;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-radius:15px;
+    margin-right: 10px;
+}
+
+.value span{
+    color: #ffffff;
+}
+
+.submitButtonContainer button{
+    float: right;
+    width: 75px;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #222fdeb4; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.myPageBody h2{
+    color: #ffffff;
+}

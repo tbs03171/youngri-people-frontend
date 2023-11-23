@@ -1,0 +1,228 @@
+.mainBody {
+    background-color: #212020;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto; /*배경 설정*/
+}
+
+.mainLogo {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+}
+
+.mainNavigation {
+    position: absolute;
+    top: 56px;
+    left: 300px;
+    display: flex;
+}
+
+.mainNavigation button{ 
+    margin-left: 20px;
+    border: none;
+    background-color: transparent;
+    font-size: 25px;
+    color: #b1adad; 
+    font-weight: bold;
+}
+
+.searchMovie {
+    position: absolute;
+    top: 65px;
+    right: 120px;
+    display: flex;
+}
+
+.searchMovie button {
+    background-color: transparent;
+    border: none;
+}
+
+.buttonLogout {
+    position: absolute;
+    top: 13px;
+    right: 120px;
+    display: flex;
+}
+
+.buttonLogout button {
+    border: none;
+    background-color: transparent;
+    font-size: 13px;
+    color: #b1adad; 
+    font-weight: bold;
+}
+
+.mainBottom h2 {
+    color: #fff; 
+}
+
+.genreBox{
+    position: absolute;
+    top: 125px;
+    left: 65px;
+}
+
+/*Title은 카테고리명, List는 포스터*/
+.cateTitle1 {
+    position: absolute; 
+    top: 150px;
+    left: 65px;
+}
+
+.cateList1 {
+    position: absolute; 
+    top: 250px;
+    left: 65px;
+    width: calc(100% - 140px); 
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.cateTitle2 {
+    position: absolute; 
+    top: 700px;
+    left: 65px;
+}
+
+.cateList2 {
+    position: absolute; 
+    top: 800px;
+    left: 65px;
+    width: calc(100% - 140px); 
+    overflow-x: scroll;
+    white-space: nowrap;   
+}
+
+.cateTitle3 {
+    position: absolute; 
+    top: 1250px;
+    left: 65px;
+}
+
+.cateList3 {
+    position: absolute; 
+    top: 1350px;
+    left: 65px;
+    width: calc(100% - 140px); 
+    overflow-x: scroll;
+    white-space: nowrap;   
+}
+
+.cateTitle4 {
+    position: absolute; 
+    top: 1800px;
+    left: 65px;
+}
+
+.cateList4 {
+    position: absolute; 
+    top: 1900px;
+    left: 65px;
+    width: calc(100% - 140px); 
+    overflow-x: scroll;
+    white-space: nowrap;   
+}
+
+.cateTitle5 {
+    position: absolute; 
+    top: 2350px;
+    left: 65px;
+}
+
+.cateList5 {
+    position: absolute; 
+    top: 2450px;
+    left: 65px;
+    width: calc(100% - 140px); 
+    overflow-x: scroll;
+    white-space: nowrap;   
+}
+
+.cateTitle6 {
+    position: absolute; 
+    top: 2900px;
+    left: 65px;
+}
+
+.cateList6 {
+    position: absolute; 
+    top: 3000px;
+    left: 65px;
+    width: calc(100% - 140px); 
+    overflow-x: scroll;
+    white-space: nowrap;   
+}
+
+.cateTitle7 {
+    position: absolute; 
+    top: 3450px;
+    left: 65px;
+}
+
+.cateList7 {
+    position: absolute; 
+    top: 3550px;
+    left: 65px;
+    width: calc(100% - 140px); 
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.movieComponent {
+    display: inline-block;
+    text-align: center;
+    padding-right: 20px;
+}
+
+.moviePoster{
+    width: 200px;
+    height: 300px;
+}
+
+.movieTitle {
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: #4e4d4d;
+    font-size: 15px;
+}
+
+.cateList1::-webkit-scrollbar,
+.cateList2::-webkit-scrollbar,
+.cateList3::-webkit-scrollbar,
+.cateList4::-webkit-scrollbar,
+.cateList5::-webkit-scrollbar,
+.cateList6::-webkit-scrollbar,
+.cateList7::-webkit-scrollbar {
+    height: 8px;  /*스크롤바 너비 */
+  }
+  
+  .cateList1::-webkit-scrollbar-thumb,
+.cateList2::-webkit-scrollbar-thumb,
+.cateList3::-webkit-scrollbar-thumb,
+.cateList4::-webkit-scrollbar-thumb,
+.cateList5::-webkit-scrollbar-thumb,
+.cateList6::-webkit-scrollbar-thumb,
+.cateList7::-webkit-scrollbar-thumb {
+    height: 30%; /*스크롤바 길이 */
+    background: #b1adad; /*스크롤바 색상*/
+    border-radius: 8px;
+  }
+  
+  .cateList1::-webkit-scrollbar-track,
+.cateList2::-webkit-scrollbar-track,
+.cateList3::-webkit-scrollbar-track,
+.cateList4::-webkit-scrollbar-track,
+.cateList5::-webkit-scrollbar-track,
+.cateList6::-webkit-scrollbar-track,
+.cateList7::-webkit-scrollbar-track {
+    background: transparent; /*스크롤바 뒷 배경 색상*/
+  }

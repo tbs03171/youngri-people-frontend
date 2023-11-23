@@ -1,5 +1,4 @@
-import './Login.css';
-
+import styles from './Login.module.css';
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -43,23 +42,24 @@ const Login = () => {
       });
   };
 
-  return(
-    <body>
-      <div className="main-logo">
+  return (
+    <div className={styles.loginBody}>
+      <div className={styles.mainLogo}>
         <img src="img/main_logo.PNG" onClick={goToHome} alt="로고 이미지"></img>
       </div>
-      <div className="login-container">
-              <h1>로그인</h1>
-              <form method="post" action="login" className='login-input'>
-                  <input type='text' placeholder="아이디" onChange={(e)=>{setUserId(e.target.value);}} name="id"></input>
-                  <input type='password' placeholder="비밀번호" onChange={(e)=>{setPassword(e.target.value);}} name="password"></input>
-                  <button type="submit" onClick={onSubmit} id="loginButton">로그인하기</button>
-              </form>
-          </div>
-          <div className="signup-link">
-              <p>아직 계정이 없으신가요? <button onClick={goToJoin}>회원가입</button></p>
-          </div>
-    </body>
+      <div className={styles.loginContainer}>
+        <h1>로그인</h1>
+        <form method="post" action="login" className={styles.loginInput}>
+          <input type="text" placeholder="아이디" onChange={(e) => { setUserId(e.target.value); }} name="id"></input>
+          <input type="password" placeholder="비밀번호" onChange={(e) => { setPassword(e.target.value); }} name="password"></input>
+          <button type="submit" onClick={onSubmit} id="loginButton">로그인하기</button>
+        </form>
+        <div className={styles.signupLink}>
+        <p>아직 계정이 없으신가요? <button onClick={goToJoin}>회원가입</button></p>
+      </div>
+      </div>
+      
+    </div>
   );
 }
 

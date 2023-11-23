@@ -10,6 +10,10 @@ import Userpage from './Pages/UserPage';
 import Main from './Pages/Main';
 import { Routes, Route } from 'react-router-dom';
 import MovieSearch from './Pages/MovieSearch';
+import Filmography from './Pages/Filmography';
+import Genre from './Pages/Genre';
+import MyPageEdit from './Pages/MyPageEdit';
+import ReviewEdit from './Pages/ReviewEdit';
 
 function App() {
   return (
@@ -20,10 +24,14 @@ function App() {
         <Route path="/join" element={<Join/>}/>
         <Route path="/main" element={<Main/>}/>
         <Route path="/movie-information/:movieId" element={<MovieInformation/>}/>
-        <Route path="/my-page" element={<MyPage/>}/>
-        <Route path="/community" element={<Community/>}/>
+        <Route path="/filmography/:personId" element={<Filmography/>}/>
+        <Route path="/genre/:genre" element={<Genre/>}/>
         <Route path="/movie-search" element={<MovieSearch/>}/>
-        <Route path="/user-page" element={<Userpage/>}/>
+        <Route path="/my-page" element={<MyPage/>}/>
+        <Route path="/my-page-edit" element={<MyPageEdit/>}/>
+        <Route path="/review-edit/:reviewId" element={<ReviewEdit/>}/>
+        <Route path="/community" element={<Community/>}/>
+        <Route path="/user-page/:userId" element={<Userpage/>}/>
         <Route path="/user-search" element={<UserSearch/>}/>
       </Routes>
     </div>

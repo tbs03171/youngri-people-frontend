@@ -1,0 +1,85 @@
+.loginBody {
+    background-color: #212020;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+  
+.mainLogo {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+}
+  
+.loginContainer {
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  
+.loginContainer h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+    letter-spacing: 5px; /*글자 간격 설정*/
+}
+  
+.loginInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.loginInput input,
+.loginInput button {
+    width: 200%;
+    height: 5vh; 
+    padding: 10px; 
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    box-sizing: border-box; 
+}
+  
+.loginInput button {
+    background-color: #222fde;
+    font-size: 15px;
+    font-weight: bold;
+}
+  
+.loginInput input {
+    background-color: #464545;
+}
+  
+.signupLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px; 
+}
+  
+.signupLink p {
+    font-size: 15px;
+    color: #4e4d4d; 
+    text-decoration: none; 
+    font-weight: bold;
+}
+  
+.signupLink button {
+    background: none;
+    border: none;
+    color: #b1adad; 
+    cursor: pointer;
+    text-decoration: none; 
+    font-size: 15px;
+    font-weight: bold;
+}

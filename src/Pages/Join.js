@@ -1,4 +1,4 @@
-import './Join.css';
+import styles from './Join.module.css';
 
 import axios from "axios";
 import React, { useState } from "react";
@@ -13,6 +13,7 @@ const Join=()=>{
   
   const [userId, setUserId]=useState("");
   const [password, setPassword]=useState("");
+  const [checkPassword, setCheckPassword]=useState("");
   const [name, setName]=useState("");
   const [phoneNumberPrefix, setPhoneNumberPrefix]=useState("");
   const [phoneNumberPostfix, setPhoneNumberPostfix]=useState("");
@@ -28,6 +29,7 @@ const Join=()=>{
       .post("/api/members/create",{
         userId: userId,
         password: password,
+        checkPassword: checkPassword,
         name: name,
         phoneNumber: `${phoneNumberPrefix}${phoneNumberPostfix}`,
         gender: gender,
@@ -44,7 +46,6 @@ const Join=()=>{
         if(error.response.status===403){
           alert("알 수 없는 오류로 실패(Error 403)");
         }
-        console.log(error);
         if(error.response.status===400){
           alert("검증 오류로 실패");
         }
@@ -54,22 +55,30 @@ const Join=()=>{
       });
   }
 
-    return(
-        <body>
-            <div className='main-logo'>
-                <img src='img/main_logo.PNG' onClick={goToLogin} alt='로고 이미지'></img>
-            </div>
-            <div className='signup-container'>
-                <h1>Create An Account</h1>
-                <p>Information</p>
-                <form method='post' action='join' className='signup-input'>
-                    <input type='text' placeholder='아이디 (영문 소문자/숫자, 4~16자)' onChange={(e)=>{setUserId(e.target.value);}} id='id' name='id' className='input-field'></input>
-                    <input type='password' placeholder='비밀번호 (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)' onChange={(e)=>{setPassword(e.target.value);}} id='password' name='password' className='input-field'></input>
-                    <input type='password' placeholder='비밀번호 확인' id='password-confirm' name='password-confirm' className='input-field'></input>
-                    <input type='text' placeholder='이름' onChange={(e)=>{setName(e.target.value);}} id='name' name='name'className='input-field'></input>
-                    <input type='text' placeholder='닉네임' onChange={(e)=>{setNickname(e.target.value);}} id='nickname' name='nickname' className='input-field'></input>
-                    <div className='phone-container'>
-                        <select onChange={(e)=>{setPhoneNumberPrefix(e.target.value)}} name='phone-prefix' id='phone-prefix' className='phone-field'>
+  return (
+    <div className={styles.joinBody}>
+
+      <div className={styles.mainLogo}>
+        <img src='img/main_logo.PNG' onClick={goToLogin} alt='로고 이미지'></img>
+      </div>
+        <div className={styles.signupContainer}>
+        <h1>회원가입</h1>
+        <p>*필수입력사항</p>
+        
+        <form method='post' action='join' >
+
+                    <input type='text' placeholder='  *아이디 (영문 소문자/숫자, 4~16자)' onChange={(e)=>{setUserId(e.target.value);}} id='id' name='id' className={styles.inputField}></input>
+
+                    <input type='password' placeholder='  *비밀번호 (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)' onChange={(e)=>{setPassword(e.target.value);}} id='password' name='password' className={styles.inputField}></input>
+
+                    <input type='password' placeholder='  *비밀번호 확인' onChange={(e)=>{setCheckPassword(e.target.value);}} id='password-confirm' name='password-confirm' className={styles.inputField}></input>
+
+                    <input type='text' placeholder='  *이름' onChange={(e)=>{setName(e.target.value);}} id='name' name='name'className={styles.inputField}></input>
+
+                    <input type='text' placeholder='  *닉네임' onChange={(e)=>{setNickname(e.target.value);}} id='nickname' name='nickname' className={styles.inputField}></input>
+
+                    <div className={styles.phoneContainer}>
+                        <select onChange={(e)=>{setPhoneNumberPrefix(e.target.value)}} name='phone-prefix' id='phone-prefix' className={styles.phoneField1}>
                             <option value="010">010</option>
                             <option value="011">011</option>
                             <option value="012">012</option>
@@ -81,15 +90,18 @@ const Join=()=>{
                             <option value="018">018</option>
                             <option value="019">019</option>
                         </select>
-                        <input type='text' placeholder='나머지 번호 입력(-제외)' onChange={(e)=>setPhoneNumberPostfix(e.target.value)} id='phone-number' name='phone-number' className='phone-field'></input>
+
+                        <input type='text' placeholder='나머지 번호 입력(-제외)' onChange={(e)=>setPhoneNumberPostfix(e.target.value)} id='phone-number' name='phone-number' className={styles.phoneField2}></input>
                     </div>
-                    <select onChange={(e)=>{setGender(e.target.value)}} name="gender" id="gender" class="input-field">
+
+                    <select onChange={(e)=>{setGender(e.target.value)}} name="gender" id="gender" class={styles.genderField}>
                         <option value="" disabled selected>성별 선택</option>
                         <option value="MALE">남성</option>
                         <option value="FEMALE">여성</option>
                     </select>
-                    <div class="birthdate-container">
-                        <select onChange={(e)=>{setBirthYear(e.target.value)}} name="birthdate-year" id="birthdate-year" class="birthdate-field">
+
+                    <div className={styles.birhdateContainer}>
+                        <select onChange={(e)=>{setBirthYear(e.target.value)}} name="birthdate-year" id="birthdate-year" className={styles.birthdateField1}>
                             <option value="" disabled selected>출생 연도 선택</option>
                             <option value="2023">2023년</option>
                             <option value="2022">2022년</option>
@@ -145,7 +157,8 @@ const Join=()=>{
                             <option value="1972">1972년</option>
                             <option value="1971">1971년</option>                    
                         </select>
-                        <select onChange={(e)=>{setBirthMonth(e.target.value)}} name="birthdate-month" id="birthdate-month" class="birthdate-field">
+
+                        <select onChange={(e)=>{setBirthMonth(e.target.value)}} name="birthdate-month" id="birthdate-month" className={styles.birthdateField2}>
                             <option value="" disabled selected>월 선택</option>
                             <option value="1">1월</option>
                             <option value="2">2월</option>
@@ -160,7 +173,8 @@ const Join=()=>{
                             <option value="11">11월</option>
                             <option value="12">12월</option>
                         </select>
-                        <select onChange={(e)=>{setBirthDay(e.target.value)}} name="birthdate-day" id="birthdate-day" class="birthdate-field">
+
+                        <select onChange={(e)=>{setBirthDay(e.target.value)}} name="birthdate-day" id="birthdate-day" className={styles.birthdateField3}>
                             <option value="" disabled selected>일 선택</option>
                             <option value="1">1일</option>
                             <option value="2">2일</option>
@@ -195,10 +209,13 @@ const Join=()=>{
                             <option value="31">31일</option>           
                         </select>
                     </div>
-                    <button type='submit' onClick={onSubmit} id='signup-button'>회원가입하기</button>
+
+                    <button type='submit' onClick={onSubmit} id='signup-button' className={styles.buttonJoin}>회원가입하기</button>
+
                 </form>
             </div>
-        </body>
+            </div>
+        
     )
 }
 export default Join;

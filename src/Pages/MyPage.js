@@ -1,110 +1,301 @@
-import './MyPage.css';
+import styles from './MyPage.module.css';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MyPage=()=>{
+    const navigate=useNavigate();
+    const goToMain=()=>{
+        navigate("/main");
+    }
+    const goToUserSearch=()=>{
+        navigate("/user-search");
+    }
+    const goToMyPageEdit=()=>{
+        navigate("/my-page-edit");
+    }
+    const logout=()=>{
+        localStorage.removeItem('authorization');
+        alert("로그아웃 성공");
+        navigate("/");
+    }
+
+    const [memberId, setMemberId]=useState("")
+    const [profilePath, setProfilePath]=useState("");
+    const [name, setName]=useState("");
+    const [nickname, setNickname]=useState("");
+    const [userId, setUserId]=useState("");
+    const [mbti, setMbti]=useState("");
+    const [genres, setGenres]=useState("");
+
+    const [reviewId, setReviewId]=useState([]);
+    const [reviewMovieTitle, setReviewMovieTitle]=useState([]);
+    const [reviewRating, setReviewRating]=useState([]);
+    const [reviewComment, setReviewComment]=useState([]);
+
+    const [bookmarkPoster, setBookmarkPoster]=useState([]);
+    const [bookmarkTitle, setBookmarkTitle]=useState([]);
+
+    useEffect(()=>{
+        axios
+        .get("/api/members", {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('authorization') || ''}`,
+            },
+        })
+        .then((response)=>{
+            if(response.status===200){
+                console.log(response);
+                setMemberId(response.data.data.id);
+                setProfilePath(response.data.data.profilePath);
+                setName(response.data.data.name);
+                setNickname(response.data.data.nickname);
+                setUserId(response.data.data.userId);
+                setMbti(response.data.data.mbti);
+            }
+        })
+        .catch((error)=>{
+            if(error.response.status===403){
+                alert("403");
+                localStorage.removeItem('authorization');
+                return navigate("/login");
+            }
+        })
+
+        axios
+        .get("/api/preferred-genres",{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('authorization') || ''}`,
+            },
+        })
+        .then((response)=>{
+            if(response.status===200){
+                console.log(response);
+                setGenres(response.data.data);
+            }
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+
+        axios
+        .get(`/api/reviews/memberall/${memberId}`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('authorization') || ''}`,
+            },
+        })
+        .then((response)=>{
+            if(response.status===200){
+                console.log(response);
+                let id=[];
+                let title=[];
+                let rating=[];
+                let comment=[];
+                for(let i=0;i<response.data.data.length;i++){
+                    id.push(response.data.data[i].id);
+                    title.push(response.data.data[i].movieName);
+                    rating.push(response.data.data[i].reviewRating);
+                    comment.push(response.data.data[i].comment);
+                }
+                setReviewId(id);
+                setReviewMovieTitle(title);
+                setReviewRating(rating);
+                setReviewComment(comment);
+            }
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+
+        axios
+        .get("/api/bookmark/bookmarks",{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('authorization') || ''}`,
+            },
+        })
+        .then((response)=>{
+            if(response.status===200){
+                console.log(response);
+                let poster=[];
+                let title=[];
+                for(let i=0;i<response.data.data.length;i++){
+                    poster.push(response.data.data[i].posterPath);
+                    title.push(response.data.data[i].title);
+                }
+                setBookmarkPoster(poster);
+                setBookmarkTitle(title);
+            }
+        })
+        .catch((error)=>{
+            console.log(error);
+        })  
+    },[memberId]);
+
+    const displayProfileImg=()=>{
+        if(profilePath==="1"){
+            return <img id="profile-img" class="img" src={`${process.env.PUBLIC_URL}/img/profile/profile1.jpg`}></img>
+        }
+        else if(profilePath==="2"){
+            return <img id="profile-img" class="img" src={`${process.env.PUBLIC_URL}/img/profile/profile2.jpg`}></img>
+        }
+        else if(profilePath==="3"){
+            return <img id="profile-img" class="img" src={`${process.env.PUBLIC_URL}/img/profile/profile3.jpg`}></img>
+        }
+        else if(profilePath==="4"){
+            return <img id="profile-img" class="img" src={`${process.env.PUBLIC_URL}/img/profile/profile4.jpg`}></img>
+        }
+        else if(profilePath==="5"){
+            return <img id="profile-img" class="img" src={`${process.env.PUBLIC_URL}/img/profile/profile5.jpg`}></img>
+        }
+        else{
+            return <img id="profile-img" class="img" src={`${process.env.PUBLIC_URL}/img/baseprofile.jpg`}></img>
+        }
+    }
+
+    const displayMbti=()=>{
+        if(mbti===null){
+            return "MBTI를 설정해주세요.";
+        }
+        else{
+            return mbti;
+        }
+    }
+    
+    const displayGenres=()=>{
+        if(genres.length===0){
+            return "선호 장르 해시태그를 설정해주세요."
+        }
+        else{
+            const displayGenresData=[];
+            for(let i=0;i<genres.length;i++){
+                displayGenresData.push(
+                    <button id='content'
+                        onClick={(e)=>{navigate(`/genre/${genres[i]}`)}}
+                    >{genres[i]}</button>
+                )
+            }
+            return displayGenresData;
+        }
+    }
+
+    const displayReviewData=()=>{
+        const displayReviewDataArr=[];
+        if(reviewId.length===0){
+            displayReviewDataArr.push(
+                <h3>재밌게 본 영화에 리뷰를 달아보세요.</h3>
+            );
+        }
+        else{
+            for(let i=0;i<reviewId.length;i++){
+                displayReviewDataArr.push(
+                    <div class={styles.review}>
+                        <button id="revisebtn" onClick={(e)=>navigate(`/review-edit/${reviewId[i]}`)}>수정</button>
+                        <button id="deletebtn" onClick={(e)=>deleteReveiw(`${reviewId[i]}`)}>삭제</button>
+                        <p>{reviewMovieTitle[i]}</p>
+                        <p>{reviewRating[i]}</p>
+                        <p>{reviewComment[i]}</p>
+                    </div>
+                )
+            }
+        }
+        return displayReviewDataArr;
+    }
+
+    const deleteReveiw=(rid)=>{
+        console.log(rid);
+        axios
+        .delete(`/api/reviews/${rid}`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('authorization') || ''}`,
+            },
+        })
+        .then((response)=>{
+            if(response.status===200){
+                alert("리뷰 삭제 성공");
+                window.location.reload();
+            }
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
+
+    const displayBookmarkData=()=>{
+        const displayBookmarkDataArr=[];
+        if(bookmarkPoster.length===0){
+            displayBookmarkDataArr.push(
+                <h3>마음에 드는 영화를 찜해보세요.</h3>
+            )
+        }
+        else{
+            for(let i=0;i<bookmarkPoster.length;i++){
+                displayBookmarkDataArr.push(
+                    <div className={styles.movieComponent}>
+                        <img className={styles.moviePoster} src={bookmarkPoster[i]}></img>
+                        <h3 className={styles.movieTitle}>{bookmarkTitle[i]}</h3>
+                    </div>
+                )
+            }
+        }
+        return displayBookmarkDataArr;
+    }
+
     return(
-        <body>
-            <div className="top">
-                <div className="logo">
-                    <img src="img/main_logo.PNG" alt="로고 이미지"></img>
-                </div>
-                <div className="top_component">
-                    <div className="search_box">
-                        <button type="submit">검색</button>
-                    </div>
-                    <div className="logout">
-                        <button>로그아웃</button>
-                    </div>
-                </div>
+        <body class={styles.myPageBody}>
+            <div className={styles.mainLogo}>
+                <img src='img/main_logo.PNG' onClick={goToMain} alt='로고 이미지'></img>
             </div>
-            <div className="mypage-bottom">
+                
+            <div className={styles.searchMovie}>
+                <button onClick={goToUserSearch}>
+                    <img src='img/search.png'/>
+                </button>
+            </div>
+            <div className={styles.buttonLogout}>
+                <button onClick={logout}>로그아웃</button>
+            </div>
+
+            <div className={styles.myPageBottom}>
                 <table>
                     <tr>
-                        <td colspan="5" align="center">
-                            <div id="img-container">
-                                <label for="fileInput" id="fileInputLabel">
-                                    <img src="img/set.png"></img>
-                                </label>
-                                <input type="file" id="fileInput" onchange="loadFile(this)"></input>
-                                <p id="fileName"></p>
-                                <img id="uploadedImg" class="img" src="img/baseprofile.jpg"></img>
-                                <img id="removeBtn" src="set.png" onclick="removeImage()"></img>
+                        <td colspan="2" align="center">
+                            <div className={styles.imgContainer}>
+                                {displayProfileImg()}
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="5" align="center">
-                            <h2>User</h2>
-                    </td>
+                        <td colspan="2" align="center"><h2>{name}</h2></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <p id="nickname_label">닉네임</p>
-                        </td>
-                        <td>
-                            <p>잼민</p>
-                        </td>
-                        <td><img id="nicknamech" src="img/set.png" onclick=""></img></td>
+                        <td className={styles.label}><p id="nickname_label">닉네임</p></td>
+                        <td className={styles.value}><p id="nickname_value">{nickname}</p></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <p id="id_label">아이디</p>
-                        </td>
-                        <td>
-                            <p>@jammins</p>
-                        </td>
-                        <td><img id="idch" src="img/set.png" onclick=""></img></td>
+                        <td className={styles.label}><p id="id_label">아이디</p></td>
+                        <td className={styles.value}><p id="id_value">@{userId}</p></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <p id="MBTI_label">MBTI</p>
-                        </td>
-                        <td>
-                            <p>ENFP</p>
-                        </td>
-                        <td><img id="mbtich" src="img/set.png" onclick=""></img></td>
+                        <td className={styles.label}><p id="MBTI_label">MBTI</p></td>
+                        <td className={styles.value}><p id="MBTI_value">{displayMbti()}</p></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td><p id="genre_label">#선호장르</p></td>
-                        <td>#스릴러</td>
-                        <td><img id="genrech" src="img/set.png" onclick=""></img></td>
+                        <td className={styles.label}><p id="genre_label">#선호장르</p></td>
+                        <td className={styles.value}>{displayGenres()}</td>
                     </tr>
                     <tr>
-                        <td></td>
+                        <td className={styles.editButtonContainer} colspan="2" align="center"><button id='edit-btn' onClick={goToMyPageEdit}>변경</button></td>
                     </tr>
                 </table>
                 <h2>내가 쓴 리뷰</h2>
-                <div class="my_review">
-                    <div class="review_space">
-                        <button id="revisebtn">수정</button>
-                        <button id="deletebtn">삭제</button>
-                        <div class="review"></div>
-                        <button id="revisebtn">수정</button>
-                        <button id="deletebtn">삭제</button>
-                        <div class="review"></div>
-                        <button id="revisebtn">수정</button>
-                        <button id="deletebtn">삭제</button>
-                        <div class="review"></div>
-                        <button id="revisebtn">수정</button>
-                        <button id="deletebtn">삭제</button>
-                        <div class="review"></div>
+                <div class={styles.myReview}>
+                    <div class={styles.reviewSpace}>
+                        {displayReviewData()}
                     </div>
                 </div>
                 <h2 >내가 찜한 영화</h2>
-                <div class="saved_movie">
-                    <img src="img/sample_poster.jpg"></img>
-                    <img src="img/sample_poster.jpg"></img>
-                    <img src="img/sample_poster.jpg"></img>
-                    <img src="img/sample_poster.jpg"></img>
-                    <img src="img/sample_poster.jpg"></img>
-                    <img src="img/sample_poster.jpg"></img>
+                <div class={styles.savedMovie}>
+                    {displayBookmarkData()}
                 </div>
             </div>
         </body>

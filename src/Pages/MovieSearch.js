@@ -1,3 +1,4 @@
+import styles from './MovieSearch.module.css';
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -47,12 +48,12 @@ const MovieSearch=()=>{
         const searchMovieDataArr=[];
         for(let i=0;i<searchMovieId.length;i++){
             searchMovieDataArr.push(
-                <div className="movie-component">
-                    <img id="movie-poster"
+                <div className={styles.movieComponent}>
+                    <img id="movie-poster" className={styles.moviePoster}
                         src={searchMoviePoster[i]}
                         onClick={(e)=>{navigate(`/movie-information/${searchMovieId[i]}`)}}
                     ></img>
-                    <h3 id="movie-title">{searchMovieTitle[i]}</h3>
+                    <h3 id="movie-title" className={styles.movieTitle}>{searchMovieTitle[i]}</h3>
                 </div>
             )
         }
@@ -60,35 +61,34 @@ const MovieSearch=()=>{
     }
 
     return(
-        <body>
-            <div className="top">
-                <div className="logo">
-                    <img src="img/main_logo.PNG" onClick={goToMain} alt="로고 이미지"></img>
-                </div>
-                <div className="top_component">
-                    <div className="search_box">
-                        <form method="post" action="moviesearch.php">
-                            <select onChange={(e)=>{setSearchKeyword(e.target.value)}} name="movie_search">
-                                <option value="title" selected>제목</option>
-                                <option value="person">감독 및 배우</option>
-                                <option value="genre">장르</option>
-                            </select>
-                            <input onChange={(e)=>{setSearchContent(e.target.value)}} type="text" placeholder="키워드를 입력하세요..."></input>
-                            <button onClick={onSubmit} type="submit">검색</button>
-                        </form>
-                    </div>
-                    <div className="logout">
-                        <button>로그아웃</button>
-                    </div>
-                </div>
+        <div className={styles.movieSearchBody}>
+            
+            <div className={styles.mainLogo}>
+                <img src='img/main_logo.PNG' onClick={goToMain} alt='로고 이미지'></img>
             </div>
-            <div className="moviesearch-bottom">
+
+            <div className={styles.searchBox}>
+                <form method="post" action="moviesearch.php">
+                    <select onChange={(e)=>{setSearchKeyword(e.target.value)}} name="movie_search" className={styles.searchBox1}>
+                        <option value="title" selected>제목</option>
+                        <option value="person">감독 및 배우</option>
+
+                    </select>
+                    <input onChange={(e)=>{setSearchContent(e.target.value)}} type="text" className={styles.searchBox2} placeholder="키워드를 입력하세요..." ></input>
+                    <button onClick={onSubmit} className={styles.searchBox3} type="submit" ><img src='img/search_icon2.png'/></button>
+                </form>
+            </div>
+            <div className={styles.buttonLogout}>
+                <button>로그아웃</button>
+            </div>
+                
+            <div className={styles.movieSearchBottom}>
                 <h2>영화 검색 결과</h2>
                 <div className="search-movie-container">
                     {displaySearchMovieData()}
                 </div>
             </div>
-        </body>
+        </div>
     )
 }
 

@@ -1,0 +1,204 @@
+.movieInformationBody {
+    background-color: #212020;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto; /*배경 설정*/
+}
+  
+hr {
+    border: none;
+    border-top: 1px solid #4e4d4d; 
+    margin-top: 35px;
+}
+
+.mainLogo {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+}
+
+.searchMovie {
+    position: absolute;
+    top: 65px;
+    right: 120px;
+    display: flex;
+}
+
+.searchMovie button {
+    background-color: transparent;
+    border: none;
+}
+
+.buttonLogout {
+    position: absolute;
+    top: 13px;
+    right: 120px;
+    display: flex;
+}
+
+.buttonLogout button {
+    border: none;
+    background-color: transparent;
+    font-size: 13px;
+    color: #b1adad; 
+    font-weight: bold;
+}
+
+.movieInformationBottom{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 150px;
+}
+
+.poster{
+    float: left;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.poster img{
+    width: 210px;
+}
+
+.information{
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.information h1{
+    display: inline-block;
+    color: #ffffff;
+}
+
+.heartWrap{
+    display: inline-block;
+    float: right;
+}
+
+.component{
+    overflow: hidden;
+    width: 710px;
+}
+
+.component h3{
+    display: inline-block;
+    line-height: 0.6;
+    color: #464545;
+    margin-right: 10px;
+}
+
+.component p{
+    display: inline-block;
+    line-height: 0.9;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.component button{
+    background-color: #464545;
+    color: #ffffff;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-radius:15px;
+    margin-right: 10px;
+}
+
+.summary{
+    width: 950px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.summary h3{
+    color: #464545;
+}
+
+.summary p{
+    color: #ffffff;
+}
+
+.trailer{
+    width: 950px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.trailer h3{
+    color: #464545;
+}
+
+.trailer embed{
+    width: 100%;
+    height: 500px;
+}
+
+.reviewWrite{
+    width: 950px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.reviewWrite h3{
+    color: #464545;
+}
+
+.reviewWrite textarea{
+    width: 945px;
+    height: 100px;
+    background-color: #464545; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.reviewWrite button{
+    float: right;
+    height: 30px;
+    width: 50px;
+    background-color: #222fdeb4; 
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.starpointWrap{
+    display:inline-block;
+    margin-bottom: 20px;
+}
+
+.reviewCollection{
+    width: 950px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.reviewCollection h3{
+    color: #464545;
+}
+
+.reviewCollection .space{
+    overflow-y: scroll;
+    height: 200px;
+    background-color: #464545; 
+    border: none;
+    border-radius: 5px;
+    padding-left: 16px;
+    padding-top: 20px;
+}
+
+.reviewCollection .aReview{
+    width: 900px;
+    height: 100px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

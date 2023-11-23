@@ -1,0 +1,89 @@
+.communityBody {
+    background-color: #212020;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto; /*배경 설정*/
+}
+
+.mainLogo {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+}
+
+.searchMovie {
+    position: absolute;
+    top: 65px;
+    right: 120px;
+    display: flex;
+}
+
+.searchMovie button {
+    background-color: transparent;
+    border: none;
+}
+
+.buttonLogout {
+    position: absolute;
+    top: 13px;
+    right: 120px;
+    display: flex;
+}
+
+.buttonLogout button {
+    border: none;
+    background-color: transparent;
+    font-size: 13px;
+    color: #b1adad; 
+    font-weight: bold;
+}
+
+.communityBottom {
+    position: absolute; 
+    top: 150px;
+    left: 65px;
+    color: #b1adad;
+}
+
+.communityBottom h1{
+    color: #ffffff;
+}
+
+.userContainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.user{
+    overflow: hidden;
+    height: 170px;
+    background-color: #464545;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.user img{
+    float: left;
+    width: 130px;
+    margin: 20px;
+    border-radius: 50%;
+}
+
+.userInformation{
+    float: left;
+    overflow: hidden;
+    width: 150px;
+    height: 130px;
+    margin: 20px;
+}
+
+.userInformation h3{
+    line-height: 2;
+}
