@@ -44,13 +44,13 @@ const Join=()=>{
       })
       .catch((error) => {
         if(error.response.status===403){
-          alert("알 수 없는 오류로 실패(Error 403)");
+          alert("알 수 없는 오류로 실패했습니다.");
         }
         if(error.response.status===400){
-          alert("검증 오류로 실패");
+          alert("공백이 있거나 비밀번호가 불일치합니다.");
         }
         else if(error.response.status===409){
-          alert("아이디 중복으로 실패")
+          alert("아이디 중복으로 실패했습니다.")
         }
       });
   }
@@ -211,7 +211,6 @@ const Join=()=>{
                     </div>
 
                     <button type='submit' onClick={onSubmit} id='signup-button' className={styles.buttonJoin}>회원가입하기</button>
-
                 </form>
             </div>
             </div>

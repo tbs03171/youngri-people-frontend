@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-/* 검색 버튼, 로그아웃 버튼 클릭시 행동 반환 */
-
 const Main=()=>{
     const navigate=useNavigate();
     const goToMain=()=>{
@@ -200,22 +198,24 @@ const Main=()=>{
         })
         .then((response)=>{
             if(response.status===200){
-                if(response.data.message==='MBTI가 등록되지 않음'){
+                if(response.data.message==='MBTI가 등록되지 않음' && response.data.message==='추천 데이터 없음'){
                     setStatusMbti(false);
                 }
                 else{
                     setStatusMbti(true);
-                    const recommendedByMbtiMovieIdArr=[];
-                    const recommendedByMbtiPosterArr=[];
-                    const recommendedByMbtiTitleArr=[];
-                    for(let i=0;i<response.data.data.length;i++){
-                        recommendedByMbtiMovieIdArr.push(response.data.data[i].id);
-                        recommendedByMbtiPosterArr.push(response.data.data[i].posterPath);
-                        recommendedByMbtiTitleArr.push(response.data.data[i].title);
-                    }
-                    setRecommendedByMbtiMovieId(recommendedByMbtiMovieIdArr);
-                    setRecommendedByMbtiPoster(recommendedByMbtiPosterArr);
-                    setRecommendedByMbtiTitle(recommendedByMbtiTitleArr);
+                    if(response.data.data!==null){
+                        const recommendedByMbtiMovieIdArr=[];
+                        const recommendedByMbtiPosterArr=[];
+                        const recommendedByMbtiTitleArr=[];
+                        for(let i=0;i<response.data.data.length;i++){
+                            recommendedByMbtiMovieIdArr.push(response.data.data[i].id);
+                            recommendedByMbtiPosterArr.push(response.data.data[i].posterPath);
+                            recommendedByMbtiTitleArr.push(response.data.data[i].title);
+                        }
+                        setRecommendedByMbtiMovieId(recommendedByMbtiMovieIdArr);
+                        setRecommendedByMbtiPoster(recommendedByMbtiPosterArr);
+                        setRecommendedByMbtiTitle(recommendedByMbtiTitleArr);
+                    } 
                 }
             }
         })
@@ -262,36 +262,42 @@ const Main=()=>{
         })
     },[]);
 
-    const onGenreSubmit=(event)=>{
+    const onGenreSubmit = () => {
         axios
-        .get(`/api/movies/genres/${genre}`, {
+          .get(`/api/movies/genres/${genre}`, {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('authorization') || ''}`,
+              Authorization: `Bearer ${localStorage.getItem('authorization') || ''}`,
             },
-        })
-        .then((response)=>{
-            if(response.status===200){
-                const genreMovieIdArr=[];
-                const genrePosterArr=[];
-                const genreTitleArr=[];
-                for(let i=0;i<response.data.data.length;i++){
-                    genreMovieIdArr.push(response.data.data[i].id);
-                    genrePosterArr.push(response.data.data[i].posterPath);
-                    genreTitleArr.push(response.data.data[i].title);
-                }
-                setGenreMovieId(genreMovieIdArr);
-                setGenrePoster(genrePosterArr);
-                setGenreTitle(genreTitleArr);
+          })
+          .then((response) => {
+            if (response.status === 200) {
+              const genreMovieIdArr = [];
+              const genrePosterArr = [];
+              const genreTitleArr = [];
+              for (let i = 0; i < response.data.data.length; i++) {
+                genreMovieIdArr.push(response.data.data[i].id);
+                genrePosterArr.push(response.data.data[i].posterPath);
+                genreTitleArr.push(response.data.data[i].title);
+              }
+              setGenreMovieId(genreMovieIdArr);
+              setGenrePoster(genrePosterArr);
+              setGenreTitle(genreTitleArr);
             }
-        })
-        .catch((error)=>{
-            if(error.response.status===403){
-                alert("403");
-                localStorage.removeItem('authorization');
-                return navigate("/login");
+          })
+          .catch((error) => {
+            if (error.response.status === 403) {
+              alert("403");
+              localStorage.removeItem('authorization');
+              return navigate("/login");
             }
-        })
-    }
+          });
+    };
+      
+    // useEffect to call onGenreSubmit when the genre changes
+    useEffect(() => {
+        onGenreSubmit();
+    }, [genre]);
+
 
     const displayGenreData=()=>{
         const genreDataArr=[];
@@ -453,31 +459,33 @@ const Main=()=>{
                 
             <div className={styles.mainBottom}>
                 <div className={styles.genreBox}>
-                    <select onChange={(e)=>{setGenre(e.target.value)}}>
-                        <option value="ACTION">ACTION</option>
-                        <option value="ADVENTURE">ADVENTURE</option>
-                        <option value="ANIMATION">ANIMATION</option>
-                        <option value="COMEDY">COMEDY</option>
-                        <option value="CRIME">CRIME</option>
-                        <option value="DOCUMENTARY">DOCUMENTARY</option>
-                        <option value="DRAMA">DRAMA</option>
-                        <option value="FAMILY">FAMILY</option>
-                        <option value="FANTASY">FANTASY</option>
-                        <option value="HISTORY">HISTORY</option>
-                        <option value="HORROR">HORROR</option>
-                        <option value="MUSIC">MUSIC</option>
-                        <option value="MYSTERY">MYSTERY</option>
-                        <option value="ROMANCE">ROMANCE</option>
-                        <option value="SCIENCE_FICTION">SCIENCE FICTION</option>
-                        <option value="TV_MOVIE">TV_MOVIE</option>
-                        <option value="THRILLER">THRILLER</option>
-                        <option value="WAR">WAR</option>
-                        <option value="WESTERN">WESTERN</option>
-                    </select>
-                    <button type='submit' onClick={onGenreSubmit}>선택</button>
+                    <h2>장르가
+                        <select onChange={(e)=>{setGenre(e.target.value)}}>
+                            <option value="ACTION">ACTION</option>
+                            <option value="ADVENTURE">ADVENTURE</option>
+                            <option value="ANIMATION">ANIMATION</option>
+                            <option value="COMEDY">COMEDY</option>
+                            <option value="CRIME">CRIME</option>
+                            <option value="DOCUMENTARY">DOCUMENTARY</option>
+                            <option value="DRAMA">DRAMA</option>
+                            <option value="FAMILY">FAMILY</option>
+                            <option value="FANTASY">FANTASY</option>
+                            <option value="HISTORY">HISTORY</option>
+                            <option value="HORROR">HORROR</option>
+                            <option value="MUSIC">MUSIC</option>
+                            <option value="MYSTERY">MYSTERY</option>
+                            <option value="ROMANCE">ROMANCE</option>
+                            <option value="SCIENCE_FICTION">SCIENCE FICTION</option>
+                            <option value="TV_MOVIE">TV_MOVIE</option>
+                            <option value="THRILLER">THRILLER</option>
+                            <option value="WAR">WAR</option>
+                            <option value="WESTERN">WESTERN</option>
+                        </select>
+                        {' 인 영화'}
+                    </h2>
                 </div>
                 <div className={styles.movieCategory1}>
-                    <h2 className={styles.cateTitle1}>장르가 {genre}인 영화</h2>
+                    
                     <div className={styles.cateList1}>
                         {displayGenreData()}
                     </div>

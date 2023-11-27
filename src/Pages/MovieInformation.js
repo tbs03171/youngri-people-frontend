@@ -3,6 +3,7 @@ import axios from 'axios';
 import styles from './MovieInformation.module.css';
 import { useEffect, useState } from 'react';
 
+
 const MovieInformation=()=>{
     const navigate=useNavigate();
     const goToMain=()=>{
@@ -35,7 +36,6 @@ const MovieInformation=()=>{
     const [movieReviewWriter, setMovieReviewWriter]=useState([]);
     const [movieReviewRating, setMovieReviewRating]=useState([]);
     const [movieReviewComment, setMovieReviewComment]=useState([]);
-    const [movieReviewProfile, setMovieReviewProfile]=useState([]);
 
     //리뷰쓰기
     const [reviewRating, setReviewRating]=useState("");
@@ -52,7 +52,6 @@ const MovieInformation=()=>{
         })
         .then((response)=>{
             if(response.status=200){
-                console.log(response.data.data);
                 setId(response.data.data.id);
                 setMoviePosterPath(response.data.data.posterPath);
                 setMovieTitle(response.data.data.title);
@@ -91,7 +90,6 @@ const MovieInformation=()=>{
             },
         })
         .then((response)=>{
-            console.log(response.data.data);
             let userId=[];
             let reviewRating=[];
             let comment=[];
@@ -157,8 +155,6 @@ const MovieInformation=()=>{
     }
 
     const onSubmit=()=>{
-        console.log(reviewRating);
-        console.log(comment);
         axios
         .post(`/api/reviews/${id}`,{
             reviewRating: reviewRating,
@@ -179,22 +175,40 @@ const MovieInformation=()=>{
         })
     }
 
-    const displayReviewData=()=>{
-        console.log(movieReviewProfile);
+    const displayReviewRating=(movieRating)=>{
+        if(movieRating===1){
+            return "★";
+        }
+        else if(movieRating===2){
+            return "★★";
+        }
+        else if(movieRating===3){
+            return "★★★";
+        }
+        else if(movieRating===4){
+            return "★★★★";
+        }
+        else if(movieRating===5){
+            return "★★★★★";
+        }
+    }
 
+    const displayReviewData=()=>{
         const displayReviewDataArr=[];
         if(movieReviewWriter.length===0){
             displayReviewDataArr.push(
+                <div className={styles.firstreview}>
                 <h2>첫 리뷰를 달아보세요.</h2>
+                </div>
             )
         }
         else{
             for(let i=0;i<movieReviewWriter.length;i++){
                 displayReviewDataArr.push(
                     <div className={styles.aReview}>
-                        <p>아이디: {movieReviewWriter[i]}</p>
-                        <p>별점: {movieReviewRating[i]}</p>
-                        <p>{movieReviewComment[i]}</p>
+                        <p className={styles.aReviewWriterId} onClick={(e) => navigate(`/user-page/${movieReviewWriter[i]}`)}>@{movieReviewWriter[i]}</p>
+                        <p className={styles.aReviewRating}>{displayReviewRating(movieReviewRating[i])}</p>
+                        <p className={styles.aReviewComment}>{movieReviewComment[i]}</p>
                     </div>
                 )
             }
@@ -203,7 +217,6 @@ const MovieInformation=()=>{
     }
 
     const handleBookmark=()=>{
-        console.log(bookmark);
         if(bookmark===true){
             axios
             .delete(`/api/bookmark/${id}`,{
@@ -222,7 +235,6 @@ const MovieInformation=()=>{
             })
         }
         else{
-            console.log(id);
             axios
             .post(`/api/bookmark/${id}`,{},{
                 headers: {
@@ -243,7 +255,7 @@ const MovieInformation=()=>{
 
     return(
         <body className={styles.movieInformationBody}>
-            <hr></hr>
+        
             <div className={styles.mainLogo}>
                 <img src={`${process.env.PUBLIC_URL}/img/main_logo.PNG`} onClick={goToMain} alt='로고 이미지'></img>
             </div>
@@ -263,10 +275,10 @@ const MovieInformation=()=>{
                 </div>
                 <div className={styles.information}>
                     <h1 id="title">{movieTitle}</h1>
-                    <div className={styles.heartWrap}>
-                        <div className="heart_box">
-                            <input type='checkbox' checked={bookmark} onClick={handleBookmark}></input>
-                        </div>
+                    <div className={styles.heart}>
+                        
+                            <input type='checkbox' className={styles.heart_checkbox} checked={bookmark} onClick={handleBookmark}></input>
+                        
                     </div>
                     <div className={styles.component}>
                         <h3 id="header">개봉일</h3>

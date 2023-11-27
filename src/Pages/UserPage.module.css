@@ -8,8 +8,10 @@
     width: 100vw;
     height: 100vh;
     overflow: auto; /*배경 설정*/
+    overflow-y: scroll;
 }
   
+
 hr {
     border: none;
     border-top: 1px solid #4e4d4d; 
@@ -90,59 +92,27 @@ hr {
     background-color: #464545;
     padding: 5px; 
     border-radius: 5px;
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
-    color:#ffffff;
+    color:#b1adad;
     font-weight: 600;
 }
 
 .value p{
+    display: inline-block;
     width: 150px;
+    padding: 5px; 
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
     color: #ffffff;
+    font-weight: 600;
 }
 
 .subscribeButtonContainer button{
-    height: 29px;
-    width: 150px;
-    background-color: #222fdeb4; 
-    border: none;
-    border-radius: 5px;
-    color: #ffffff;
-    left:45%;
-    position:fixed;
-}
-
-.userPageBody h2{
-    color: #ffffff;
-}
-
-.userReview{
-    width: 900px;
-    padding-top: 10px;
-    padding-bottom: 50px;
-}
-
-.reviewSpace{
-    height: 400px;
-    padding-left:10px;
-    overflow-y: scroll;
-    border: none;
-}
-
-.review{
-    border: none;
-    margin-bottom: 100px;
-    width: 850px;
-    height: 150px;
-    background-color: #ffffff;
-    border: none;
-    margin-bottom: 30px;
-}
-
-/*
-
-.subscribe{
     height: 29px;
     width: 80px;
     background-color: #222fdeb4; 
@@ -150,73 +120,81 @@ hr {
     border-radius: 5px;
     color: #ffffff;
     left:45%;
-    position:fixed;
+    margin-bottom: 20px;
 }
 
-table {
-    margin:0 auto;
-    border-collapse: collapse;
-    width: 200px;
-    height: 300px;
-    justify-content: center;
-    margin-top: 55px;
+.userPageBody h2{
+    color: #ffffff;
 }
 
-.userpage-bottom{
-    position: absolute;
-    top:20%;
-    left: 50%;
-    transform: translatex(-50%);
-}
-
-.profile_img {
-    border-radius: 50%;
-    width: 130px;
-    height: 130px;
-    object-fit: cover;
-    transform: translateX(20%);
-}
-
-.my_review{
-    width: 900px;
+.userReview{
+    width: 875px;
     padding-top: 10px;
     padding-bottom: 50px;
+    color: #ffffff;
+    background-color:  #212020;
 }
-.my_review .review_space{
-  height: 300px;
+
+.reviewSpace{
+    width: 860px;
+    height: 500px;
     padding-left:10px;
     overflow-y: scroll;
     border: none;
-   
+    
 }
 
-.my_review .review{
-    border: none;
-    margin-bottom: 30px;
+.review p{
+    resize: vertical;
+    padding: 10px;
+}
+
+.review{
+    
+    margin-bottom: 100px;
     width: 850px;
-    height: 150px;
-    background-color: #ffffff;
+    border-radius: 5px;
+    background-color: #4e4d4d;
     border: none;
     margin-bottom: 30px;
-} 
-#id_label{
-    background-color: #464545;
-    padding: 5px; 
-    border-radius: 5px;
-    margin-right: 20px;
-    text-align: center;
-    color:#ffffff;
-    font-weight: 600;
-    width:150px;
+    
 }
 
-#nickname_label{
-    background-color: #464545;
-    padding: 5px; 
+.reviewSpace::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.reviewSpace::-webkit-scrollbar-thumb {
+    background-color: #b1adad; 
     border-radius: 5px;
-    margin-right: 20px;
+}
+
+.reviewSpace::-webkit-scrollbar-track {
+    background-color: #212020;
+}
+
+
+.userPageBody::-webkit-scrollbar {
+	width: 10px;  /*스크롤바 너비 */
+    height: 10px;
+}
+/* 스크롤바 막대 꾸미기 */
+.userPageBody::-webkit-scrollbar-thumb {
+	height: 30%; /*스크롤바 길이 */
+  background: #b1adad; /*스크롤바 색상*/
+  border-radius: 10px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+.userPageBody::-webkit-scrollbar-track {
+	background: #212020;
+}
+
+.userPageBody::-webkit-scrollbar-corner {
+	background: #212020;
+}
+.notice {
+    color: #464545;
     text-align: center;
-    color:#ffffff;
-    font-weight: 600;
-    width:150px;
-}*/
+    font-size: 25px;
+   }

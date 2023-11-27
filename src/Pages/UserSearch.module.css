@@ -57,11 +57,11 @@
 }
 
 .searchBox2 {
-   position: absolute;
-   top: 58px;
-   right: 150px;
-   width: 170px;
-   background-color: #464545;
+    position: absolute;
+    top: 58px;
+    right: 150px;
+    width: 170px;
+    background-color: #464545;
     color: #fff;
     border: none;
     padding: 10px;
@@ -71,9 +71,9 @@
     position: absolute;
     top: 58px;
     right: 120px;
-    width: 30px;
+    width: 40px;
     border-radius: 0px 10px 10px 0px;
-    background-color: #1a1919;
+    background-color: #464545;
     border: none;
 }
 
@@ -96,23 +96,57 @@
     border: none;
     border-radius: 5px;
     margin: 10px;
-}
+    display: flex;
+} 
+
 
 .user img{
     float: left;
     width: 130px;
     margin: 20px;
     border-radius: 50%;
+    
 }
 
 .userInformation{
-    float: left;
+    float: right;
     overflow: hidden;
     width: 150px;
     height: 130px;
     margin: 20px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-around; 
 }
 
 .userInformation h3{
     line-height: 2;
+}
+
+.userSearchBottom h2{
+    color: #ffffff;
+}
+.user h3{
+    color: #ffffff;
+}
+
+.userSearchBody::-webkit-scrollbar {
+	width: 10px;  /*스크롤바 너비 */
+    height: 10px;
+}
+
+/* 스크롤바 막대 꾸미기 */
+.userSearchBody::-webkit-scrollbar-thumb {
+    height: 30%; /*스크롤바 길이 */
+    background: #b1adad; /*스크롤바 색상*/
+    border-radius: 10px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+.userSearchBody::-webkit-scrollbar-track {
+	background: #212020;
+}
+
+.userSearchBody::-webkit-scrollbar-corner {
+	background: #212020;
 }

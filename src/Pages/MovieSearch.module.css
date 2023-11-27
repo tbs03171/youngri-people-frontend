@@ -1,106 +1,134 @@
 .movieSearchBody {
-    background-color: #212020;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: auto; /*배경 설정*/
+  background-color: #212020;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto; /*배경 설정*/
+  overflow-y: scroll;
 }
-  
-.mainLogo {
-    position: absolute;
-    top: 40px;
-    left: 60px;
-  }
 
-  .buttonLogout {
-    position: absolute;
-    top: 13px;
-    right: 120px;
-    display: flex;
+.mainLogo {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+}
+
+.buttonLogout {
+  position: absolute;
+  top: 13px;
+  right: 120px;
+  display: flex;
 }
 
 .buttonLogout button {
-    border: none;
-    background-color: transparent;
-    font-size: 13px;
-    color: #b1adad; 
-    font-weight: bold;
+  border: none;
+  background-color: transparent;
+  font-size: 13px;
+  color: #b1adad; 
+  font-weight: bold;
 }
- /*검색창 다시 수정*/
- .searchBox {
-    display: flex;
-    align-items: center;
+/*검색창 다시 수정*/
+.searchBox {
+  display: flex;
+  align-items: center;
 }
 
 .searchBox1,
 .searchBox2,
 .searchBox3 {
-    height: 30px; /* 원하는 높이로 조절하세요 */
-    
-    box-sizing: border-box; /* border-box 모델 사용 */
-    /* 추가적인 스타일 */
+  height: 30px; /* 원하는 높이로 조절하세요 */
+  
+  box-sizing: border-box; /* border-box 모델 사용 */
+  /* 추가적인 스타일 */
 }
-  
-  .searchBox1 {
-    position: absolute;
-    top: 58px;
-    right: 320px;
-    background-color: #464545;
-    border-radius: 10px 0px 0px 10px;
-    color: #fff;
-    border: none;
-  }
 
-  .searchBox2 {
-   position: absolute;
-   top: 58px;
-   right: 150px;
-   width: 170px;
-   background-color: #464545;
-    color: #fff;
-    border: none;
-    padding: 10px;
-  }
+.searchBox1 {
+  position: absolute;
+  top: 58px;
+  right: 320px;
+  background-color: #464545;
+  border-radius: 10px 0px 0px 10px;
+  color: #fff;
+  border: none;
+}
 
-  .searchBox3 {
-    position: absolute;
-    top: 58px;
-    right: 120px;
-    width: 30px;
-    border-radius: 0px 10px 10px 0px;
-    background-color: #1a1919;
-    border: none;
-  }
-  
+.searchBox2 {
+  position: absolute;
+  top: 58px;
+  right: 150px;
+  width: 170px;
+  background-color: #464545;
+  color: #fff;
+  border: none;
+  padding: 10px;
+}
+
+.searchBox3 {
+  position: absolute;
+  top: 58px;
+  right: 120px;
+  width: 40px;
+  border-radius: 0px 10px 10px 0px;
+  background-color: #464545;
+  border: none;
+}
+
 
 .movieSearchBottom {
-    position: absolute; 
-    top: 150px;
-    left: 65px;
-    color: #b1adad;
+  position: absolute; 
+  top: 150px;
+  left: 65px;
+  color: #b1adad;
+}
+
+.movieSearchBottom {
+  position: absolute; 
+  top: 150px;
+  left: 65px;
+  color: #b1adad;
 }
 
 .movieComponent {
-    display: inline-block;
-    text-align: center;
-    margin: 10px; /*여러 포스터 위 아래 줄 맞추기*/
-    vertical-align: top; 
+  display: inline-block;
+  text-align: center;
+  margin: 13px; /*여러 포스터 위 아래 줄 맞추기*/
+  vertical-align: top; 
 }
 
 .moviePoster{
-    width: 200px;
-    height: 300px;
+  width: 210px;
+  height: 300px;
 }
 
 .movieTitle {
-    width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-    color: #4e4d4d;
-    font-size: 15px;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  color: #4e4d4d;
+  font-size: 15px;
+}
+.movieSearchBody::-webkit-scrollbar {
+width: 10px;  /*스크롤바 너비 */
+  height: 10px;
+}
+
+/* 스크롤바 막대 꾸미기 */
+.movieSearchBody::-webkit-scrollbar-thumb {
+height: 30%; /*스크롤바 길이 */
+background: #b1adad; /*스크롤바 색상*/
+border-radius: 10px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+.movieSearchBody::-webkit-scrollbar-track {
+background: #212020;
+}
+
+.movieSearchBody::-webkit-scrollbar-corner {
+background: #212020;
 }

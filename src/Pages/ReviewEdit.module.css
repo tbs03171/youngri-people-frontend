@@ -9,12 +9,7 @@
     height: 100vh;
     overflow: auto; /*배경 설정*/
 }
-  
-hr {
-    border: none;
-    border-top: 1px solid #4e4d4d; 
-    margin-top: 35px;
-}
+
 
 .mainLogo {
     position: absolute;
@@ -67,12 +62,13 @@ hr {
 }
 
 .reviewWrite textarea{
-    width: 945px;
+    width: 935px;
     height: 100px;
     background-color: #464545; 
     border: none;
     border-radius: 5px;
     color: #ffffff;
+    padding: 10px;
 }
 
 .reviewWrite button{
@@ -88,4 +84,33 @@ hr {
 .starpointWrap{
     display:inline-block;
     margin-bottom: 20px;
+}
+
+.starpointBox select {
+    background-color: #212020;
+    font-size: 15px;
+    color: #b1adad;
+    border: none;
+}
+
+
+.reviewEditBody::-webkit-scrollbar {
+	width: 10px;  /*스크롤바 너비 */
+    height: 10px;
+}
+
+/* 스크롤바 막대 꾸미기 */
+.reviewEditBody::-webkit-scrollbar-thumb {
+	height: 30%; /*스크롤바 길이 */
+  background: #b1adad; /*스크롤바 색상*/
+  border-radius: 10px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+.reviewEditBody::-webkit-scrollbar-track {
+	background: #212020;
+}
+
+.reviewEditBody::-webkit-scrollbar-corner {
+	background: #212020;
 }

@@ -8,12 +8,7 @@
     width: 100vw;
     height: 100vh;
     overflow: auto; /*배경 설정*/
-}
-  
-hr {
-    border: none;
-    border-top: 1px solid #4e4d4d; 
-    margin-top: 35px;
+    overflow-y: scroll;
 }
 
 .mainLogo {
@@ -64,6 +59,7 @@ hr {
 
 .poster img{
     width: 210px;
+    height: 300px;
 }
 
 .information{
@@ -76,9 +72,25 @@ hr {
     color: #ffffff;
 }
 
-.heartWrap{
+.heart{
     display: inline-block;
     float: right;
+}
+
+.heart input {
+    margin-top: 33px;
+    width: 1.5rem; 
+    height: 1.5rem; 
+    border-radius: 5px; 
+    border: 1px solid #999;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.heart input:checked {
+    background: #222fdeb4;
+    border: none;
 }
 
 .component{
@@ -89,7 +101,7 @@ hr {
 .component h3{
     display: inline-block;
     line-height: 0.6;
-    color: #464545;
+    color: #b1adad;
     margin-right: 10px;
 }
 
@@ -115,10 +127,11 @@ hr {
     width: 950px;
     padding-top: 10px;
     padding-bottom: 10px;
+    line-height: 1.7;
 }
 
 .summary h3{
-    color: #464545;
+    color: #b1adad;
 }
 
 .summary p{
@@ -132,7 +145,7 @@ hr {
 }
 
 .trailer h3{
-    color: #464545;
+    color: #b1adad;
 }
 
 .trailer embed{
@@ -147,16 +160,18 @@ hr {
 }
 
 .reviewWrite h3{
-    color: #464545;
-}
+    color: #b1adad;
+} 
 
 .reviewWrite textarea{
-    width: 945px;
+    width: 930px;
     height: 100px;
     background-color: #464545; 
     border: none;
     border-radius: 5px;
     color: #ffffff;
+    overflow-y: scroll;
+    padding: 10px;
 }
 
 .reviewWrite button{
@@ -174,6 +189,13 @@ hr {
     margin-bottom: 20px;
 }
 
+.starpointBox select {
+    background-color: #212020;
+    font-size: 15px;
+    color: #b1adad;
+    border: none;
+}
+
 .reviewCollection{
     width: 950px;
     padding-top: 10px;
@@ -181,24 +203,82 @@ hr {
 }
 
 .reviewCollection h3{
-    color: #464545;
+    color: #b1adad;
+    margin-bottom: 20px;
 }
 
 .reviewCollection .space{
     overflow-y: scroll;
     height: 200px;
-    background-color: #464545; 
+    width: 960px;
+    background-color: #212020; 
     border: none;
     border-radius: 5px;
-    padding-left: 16px;
-    padding-top: 20px;
 }
 
 .reviewCollection .aReview{
-    width: 900px;
-    height: 100px;
-    background-color: #ffffff;
+    width: 950px;
+    background-color: #464545;
     border: none;
     border-radius: 5px;
-    margin-bottom: 20px;
+    color: #ffffff;
+    resize: vertical;
 }
+
+.aReview p{
+    padding: 10px;
+    resize: vertical;
+}
+
+.firstreview {
+    color: #464545;
+    text-align: center;
+}
+
+.reviewWrite textarea::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.reviewWrite textarea::-webkit-scrollbar-thumb {
+    background-color: #b1adad;
+    border-radius: 5px;
+}
+
+.reviewWrite textarea::-webkit-scrollbar-track {
+    background-color: #464545;
+}
+
+.reviewCollection .space::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.reviewCollection .space::-webkit-scrollbar-thumb {
+    background-color: #b1adad; 
+    border-radius: 5px;
+}
+
+.reviewCollection .space::-webkit-scrollbar-track {
+    background-color: #212020;
+}
+
+.movieInformationBody::-webkit-scrollbar {
+	width: 10px;  /*스크롤바 너비 */
+    height: 10px;
+}
+
+/* 스크롤바 막대 꾸미기 */
+.movieInformationBody::-webkit-scrollbar-thumb {
+	height: 30%; /*스크롤바 길이 */
+  background: #b1adad; /*스크롤바 색상*/
+  border-radius: 10px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+.movieInformationBody::-webkit-scrollbar-track {
+	background: #212020;
+}
+
+.movieInformationBody::-webkit-scrollbar-corner {
+	background: #212020;
+}
+

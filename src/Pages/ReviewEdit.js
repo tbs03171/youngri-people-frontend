@@ -25,8 +25,6 @@ const ReviewEdit=()=>{
     const [comment, setComment]=useState("");
 
     const onSubmit=()=>{
-        console.log(reviewRating);
-        console.log(comment);
         axios
         .put(`/api/reviews/${reviewId}`,{
             reviewRating: reviewRating,
@@ -49,7 +47,6 @@ const ReviewEdit=()=>{
 
     return(
         <body className={styles.reviewEditBody}>
-            <hr></hr>
             <div className={styles.mainLogo}>
                 <img src={`${process.env.PUBLIC_URL}/img/main_logo.PNG`} onClick={goToMain} alt='로고 이미지'></img>
             </div>
@@ -68,13 +65,13 @@ const ReviewEdit=()=>{
                     <div className={styles.starpointWrap}>
                         <div className={styles.starpointBox}>
                             <select onChange={(e)=>{setReviewRating(e.target.value)}}>
-                                <option value="" disabled selected>별점</option>
-                                <option value="0">0점</option>
-                                <option value="1">1점</option>
-                                <option value="2">2점</option>
-                                <option value="3">3점</option>
-                                <option value="4">4점</option>
-                                <option value="5">5점</option>
+                                
+                                <option value="0">별점</option>
+                                <option value="1">★</option>
+                                <option value="2">★★</option>
+                                <option value="3">★★★</option>
+                                <option value="4">★★★★</option>
+                                <option value="5">★★★★★</option>
                             </select>
                         </div>
                     </div>

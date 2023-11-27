@@ -8,12 +8,7 @@
     width: 100vw;
     height: 100vh;
     overflow: auto; /*배경 설정*/
-}
-  
-hr {
-    border: none;
-    border-top: 1px solid #4e4d4d; 
-    margin-top: 35px;
+    overflow-y: scroll;
 }
 
 .mainLogo {
@@ -80,8 +75,15 @@ hr {
     z-index: 1;
 }
 
+.myname h2{
+    color: #ffffff;
+    font-size: 40px;
+}
+
+
 .myPageBottom h2{
     color: #ffffff;
+    
 }
 
 .label p{
@@ -92,26 +94,35 @@ hr {
     border-radius: 5px;
     margin-right: 20px;
     text-align: center;
-    color:#ffffff;
+    color:#b1adad;
     font-weight: 600;
 }
 
-.value p{
+.value1 p{
     width: 250px;
-    text-align: center;
     color: #ffffff;
 }
 
-.value button{
+.mbtiset{
+    color: #464545;
+}
+
+.value5 p{
+    color: #ffffff;
+}
+
+.value5 button{
     background-color: #464545;
     color: #ffffff;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    margin-top: 10px;
     border: none;
     border-radius:15px;
     margin-right: 10px;
 }
+/*완료*/
 
 .editButtonContainer button{
     float: right;
@@ -125,34 +136,66 @@ hr {
     font-weight: 600;
 }
 
+.movielike {
+    color: #464545;
+ text-align: center;
+ font-size: 25px;
+}
+
 .myPageBody h2{
     color: #ffffff;
 }
 
 .myReview{
-    width: 900px;
+    width: 875px;
     padding-top: 10px;
     padding-bottom: 50px;
+    color: #ffffff;
+    background-color: #212020;
+    
 }
 
 .reviewSpace{
-    height: 400px;
+    width: 860px;
+    height: 500px;
     padding-left:10px;
     overflow-y: scroll;
     border: none;
+    
 }
 
+.reviewSpace::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.reviewSpace::-webkit-scrollbar-thumb {
+    background-color: #b1adad; 
+    border-radius: 5px;
+}
+
+.reviewSpace::-webkit-scrollbar-track {
+    background-color: #212020;
+}
+
+
 .review{
-    border: none;
+    
     margin-bottom: 100px;
     width: 850px;
-    height: 150px;
-    background-color: #ffffff;
+    border-radius: 5px;
+    background-color: #4e4d4d;
     border: none;
     margin-bottom: 30px;
+    
+}
+
+.review p{
+    resize: vertical;
+    padding: 10px;
 }
 
 .review button{
+    float: right;
     background-color: #222fdeb4;
     border-radius: 5px;
     border: none;
@@ -160,15 +203,33 @@ hr {
     color: #ffffff;
     height:30px;
     width:50px;
+    margin-right: 10px;
+    margin-top: 5px;
+    
 }
 
 .savedMovie{
     padding-left: 10px;
     white-space: nowrap;
-    width: 900px;
+    width: 860px;
     height: 380px;
     overflow-x: scroll;
+    margin-bottom: 50px;
 }
+
+.savedMovie::-webkit-scrollbar {
+    height: 8px; 
+}
+
+.savedMovie::-webkit-scrollbar-thumb {
+    background-color: #b1adad; 
+    border-radius: 5px;
+}
+
+.savedMovie::-webkit-scrollbar-track {
+    background-color: #212020;
+}
+
 
 .movieComponent {
     display: inline-block;
@@ -189,4 +250,25 @@ hr {
     text-align: center;
     color: #4e4d4d;
     font-size: 15px;
+}
+
+.myPageBody::-webkit-scrollbar {
+	width: 10px;  /*스크롤바 너비 */
+    height: 10px;
+}
+
+/* 스크롤바 막대 꾸미기 */
+.myPageBody::-webkit-scrollbar-thumb {
+	height: 30%; /*스크롤바 길이 */
+  background: #b1adad; /*스크롤바 색상*/
+  border-radius: 10px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+.myPageBody::-webkit-scrollbar-track {
+	background: #212020;
+}
+
+.myPageBody::-webkit-scrollbar-corner {
+	background: #212020;
 }

@@ -26,9 +26,10 @@ const Userpage=()=>{
 
   const [follow, setFollow]=useState(false);
 
-  const [reviewMovieTitle, setReviewMovieTitle]=useState("");
-  const [reviewRating, setReviewRating]=useState("");
-  const [reviewComment, setReviewComment]=useState("");
+  const [reviewMovieId, setReviewMovieId]=useState([]);
+  const [reviewMovieTitle, setReviewMovieTitle]=useState([]);
+  const [reviewRating, setReviewRating]=useState([]);
+  const [reviewComment, setReviewComment]=useState([]);
 
   useEffect(()=>{
     axios
@@ -38,7 +39,6 @@ const Userpage=()=>{
         },
     })
     .then((response)=>{
-        console.log(response);
         setProfilePath(response.data.data.profilePath);
         setMemberId(response.data.data.id);
         setNickname(response.data.data.nickname);
@@ -57,15 +57,17 @@ const Userpage=()=>{
     })
     .then((response)=>{
         if(response.status===200){
-            console.log(response);
+                let movieid=[];
                 let title=[];
                 let rating=[];
                 let comment=[];
                 for(let i=0;i<response.data.data.length;i++){
+                    movieid.push(response.data.data[i].movieid);
                     title.push(response.data.data[i].movieName);
                     rating.push(response.data.data[i].reviewRating);
                     comment.push(response.data.data[i].comment);
                 }
+            setReviewMovieId(movieid);
             setReviewMovieTitle(title);
             setReviewRating(rating);
             setReviewComment(comment);
@@ -83,7 +85,6 @@ const Userpage=()=>{
     })
     .then((response)=>{
         if(response.status===200){
-            console.log(response);
             setFollow(response.data.data);
         }
     })
@@ -134,7 +135,6 @@ const Userpage=()=>{
       },
     })
     .then((response)=>{
-      console.log(response);
       if(response.status===200){
         alert("구독");
         window.location.reload();
@@ -153,7 +153,6 @@ const Userpage=()=>{
       },
     })
     .then((response)=>{
-      console.log(response);
       if(response.status===200){
         alert("구독 취소");
         window.location.reload();
@@ -164,19 +163,37 @@ const Userpage=()=>{
     })
   }
 
+  const displayReviewRating=(movieRating)=>{
+    if(movieRating===1){
+        return "★";
+    }
+    else if(movieRating===2){
+        return "★★";
+    }
+    else if(movieRating===3){
+        return "★★★";
+    }
+    else if(movieRating===4){
+        return "★★★★";
+    }
+    else if(movieRating===5){
+        return "★★★★★";
+    }
+}
+
   const displayReviewData=()=>{
     const displayReviewDataArr=[];
     if(reviewMovieTitle.length===0){
         displayReviewDataArr.push(
-            <h3>재밌게 본 영화에 리뷰를 달아보세요.</h3>
+            <h3 className={styles.notice}>작성한 리뷰가 존재하지 않습니다.</h3>
         );
     }
     else{
         for(let i=0;i<reviewMovieTitle.length;i++){
             displayReviewDataArr.push(
                 <div class={styles.review}>
-                    <p>{reviewMovieTitle[i]}</p>
-                    <p>{reviewRating[i]}</p>
+                    <p onClick={(e)=>{navigate(`/movie-information/${reviewMovieId[i]}`)}}>{reviewMovieTitle[i]}</p>
+                    <p>{displayReviewRating(reviewRating[i])}</p>
                     <p>{reviewComment[i]}</p>
                 </div>
             )
@@ -188,16 +205,16 @@ const Userpage=()=>{
   return (
     <body className={styles.userPageBody}>
       <div className={styles.mainLogo}>
-              <img src={`${process.env.PUBLIC_URL}/img/main_logo.PNG`} onClick={goToMain} alt='로고 이미지'></img>
-          </div>
+        <img src={`${process.env.PUBLIC_URL}/img/main_logo.PNG`} onClick={goToMain} alt='로고 이미지'></img>
+      </div>
               
-          <div className={styles.searchMovie}>
-              <button onClick={goToUserSearch}>
-                  <img src={`${process.env.PUBLIC_URL}/img/search.png`}/>
-              </button>
-          </div>
-          <div className={styles.buttonLogout}>
-              <button onClick={logout}>로그아웃</button>
+      <div className={styles.searchMovie}>
+        <button onClick={goToUserSearch}>
+          <img src={`${process.env.PUBLIC_URL}/img/search.png`}/>
+        </button>
+      </div>
+      <div className={styles.buttonLogout}>
+        <button onClick={logout}>로그아웃</button>
       </div>
 
       <div className={styles.userPageBottom}>
@@ -210,6 +227,13 @@ const Userpage=()=>{
             </td>
           </tr>
           <tr>
+            <td colspan="2" align="center">
+              <div className={styles.subscribeButtonContainer}>
+                {handleSubscribeButton()}
+              </div>
+            </td>
+          </tr>
+          <tr>
             <td className={styles.label}><p id="nickname_label">닉네임</p></td>
             <td className={styles.value}><p id="nickname_value">{nickname}</p></td>
           </tr>
@@ -217,12 +241,9 @@ const Userpage=()=>{
             <td className={styles.label}><p id="id_label">아이디</p></td>
             <td className={styles.value}><p id="id_value">@{userId}</p></td>
           </tr>
-          <tr>
-            <td className={styles.subscribeButtonContainer} colspan="2" align="center">{handleSubscribeButton()}</td>
-          </tr>
         </table>
 
-        <h2>지해님이 작성한 리뷰</h2>
+        <h2>{nickname}님이 작성한 리뷰</h2>
         <div className={styles.userReview}>
           <div className={styles.reviewSpace}>
             {displayReviewData()}

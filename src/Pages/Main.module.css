@@ -60,21 +60,37 @@
 }
 
 .mainBottom h2 {
-    color: #fff; 
+    color: #ffffff; 
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .genreBox{
-    position: absolute;
-    top: 125px;
-    left: 65px;
+    position: absolute; 
+    top: 150px;
+    left: 65px;  
+}
+
+.genreBox select {
+    background-color: #212020;
+    padding-left: 10px;
+    color: #fff;
+    margin-left: 15px;
+    font-size: 20px;
+    border-radius: 5px;  
+}
+
+.genreBox button {
+    font-size: 17px;
+    color: #4e4d4d;
+    background-color: #212020;
+    border: 1px solid #4e4d4d;
+    margin-left: 1px;
+    margin-right: 10px;
+    border-radius: 5px;
 }
 
 /*Title은 카테고리명, List는 포스터*/
-.cateTitle1 {
-    position: absolute; 
-    top: 150px;
-    left: 65px;
-}
 
 .cateList1 {
     position: absolute; 
@@ -203,9 +219,9 @@
 .cateList6::-webkit-scrollbar,
 .cateList7::-webkit-scrollbar {
     height: 8px;  /*스크롤바 너비 */
-  }
+}
   
-  .cateList1::-webkit-scrollbar-thumb,
+.cateList1::-webkit-scrollbar-thumb,
 .cateList2::-webkit-scrollbar-thumb,
 .cateList3::-webkit-scrollbar-thumb,
 .cateList4::-webkit-scrollbar-thumb,
@@ -215,9 +231,9 @@
     height: 30%; /*스크롤바 길이 */
     background: #b1adad; /*스크롤바 색상*/
     border-radius: 8px;
-  }
+}
   
-  .cateList1::-webkit-scrollbar-track,
+.cateList1::-webkit-scrollbar-track,
 .cateList2::-webkit-scrollbar-track,
 .cateList3::-webkit-scrollbar-track,
 .cateList4::-webkit-scrollbar-track,
@@ -225,4 +241,25 @@
 .cateList6::-webkit-scrollbar-track,
 .cateList7::-webkit-scrollbar-track {
     background: transparent; /*스크롤바 뒷 배경 색상*/
-  }
+}
+
+.mainBody::-webkit-scrollbar {
+	width: 10px;  /*스크롤바 너비 */
+    height: 10px;
+}
+
+/* 스크롤바 막대 꾸미기 */
+.mainBody::-webkit-scrollbar-thumb {
+    height: 30%; /*스크롤바 길이 */
+    background: #b1adad; /*스크롤바 색상*/
+    border-radius: 10px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+.mainBody::-webkit-scrollbar-track {
+	background: #212020;
+}
+
+.mainBody::-webkit-scrollbar-corner {
+	background: #212020;
+}

@@ -40,8 +40,8 @@
   
 .loginInput input,
 .loginInput button {
-    width: 200%;
-    height: 5vh; 
+    width: 450px;
+    height: 55px; 
     padding: 10px; 
     margin: 10px 0;
     border: none;

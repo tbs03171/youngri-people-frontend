@@ -25,7 +25,6 @@ const MyPageEdit=()=>{
     const [genres, setGenres]=useState([]);
     const handleCheckboxChange=(event)=>{
         const value=parseInt(event.target.value);
-        console.log(value);
         if(genres.includes(value)){
             setGenres(genres.filter(item=>item!==value));
         } else{
@@ -132,10 +131,6 @@ const MyPageEdit=()=>{
     },[]);
 
     const onSubmit=(event)=>{
-        console.log(profilePath);
-        console.log(nickname);
-        console.log(mbti);
-        console.log(genres);
         event.preventDefault();
         axios
         .put("/api/members",{
@@ -148,7 +143,6 @@ const MyPageEdit=()=>{
             },
         })
         .then((response)=>{
-            console.log(response);
             if(response.status===200){
                 alert("회원 정보 변경 성공");
                 return navigate("/my-page");
@@ -165,10 +159,7 @@ const MyPageEdit=()=>{
             },
         })
         .then((response)=>{
-            console.log(response);
-            if(response.status===200){
-                console.log("성공");
-            }
+            
         })
         .catch((error)=>{
             console.log(error);
@@ -177,7 +168,6 @@ const MyPageEdit=()=>{
 
     return(
         <body className={styles.myPageEditBody}>
-            <hr></hr>
             <div className={styles.mainLogo}>
                 <img src='img/main_logo.PNG' onClick={goToMain} alt='로고 이미지'></img>
             </div>
@@ -196,6 +186,17 @@ const MyPageEdit=()=>{
                     <tr>
                         <td colspan="2" align="center">
                             <div className={styles.imgContainer}>
+                                <img src="/img/profile/profile1.jpg"></img>
+                                <img src="/img/profile/profile2.jpg"></img>
+                                <img src="/img/profile/profile3.jpg"></img>
+                                <img src="/img/profile/profile4.jpg"></img>
+                                <img src="/img/profile/profile5.jpg"></img>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <div className={styles.imgSelect}>
                                 <select onChange={(e)=>{setProfilePath(e.target.value)}}>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -210,16 +211,16 @@ const MyPageEdit=()=>{
                         <td colspan="2" align="center"><h2>{name}</h2></td>
                     </tr>
                     <tr>
-                        <td className={styles.label}><p>닉네임</p></td>
-                        <td className={styles.value}><input placeholder={nickname} onChange={(e)=>{setNickname(e.target.value);}}></input></td>
+                        <td className={styles.label1}><p>닉네임</p></td>
+                        <td className={styles.value1}><input placeholder={nickname} onChange={(e)=>{setNickname(e.target.value);}}></input></td>
                     </tr>
                     <tr>
-                        <td className={styles.label}><p>아이디</p></td>
-                        <td className={styles.value}><p>@{userId}</p></td>
+                        <td className={styles.label1}><p>아이디</p></td>
+                        <td className={styles.value2}><p>@{userId}</p></td>
                     </tr>
                     <tr>
-                        <td className={styles.label}><p id="MBTI_label">MBTI</p></td>
-                        <td className={styles.value}>
+                        <td className={styles.label1}><p id="MBTI_label">MBTI</p></td>
+                        <td className={styles.value3}>
                             <select onChange={(e)=>{setMbti(e.target.value)}}>
                                 <option value="" disabled selected>{mbti}</option>
                                 <option value="ISTJ">ISTJ</option>
@@ -242,65 +243,102 @@ const MyPageEdit=()=>{
                         </td>
                     </tr>
                     <tr>
-                        <td className={styles.label}><p id="genre_label">#선호장르</p></td>
-                        <td className={styles.value}>
+                        <td className={styles.label4}><p id="genre_label">#선호장르</p></td>
+                        <td className={styles.value4}>
                            <input type='checkbox' value="28" checked={genres.includes(28)}
                                 onChange={handleCheckboxChange}/>
                            <span>ACTION</span>
+                           <div className='ch2'>
                            <input type='checkbox' value="12" checked={genres.includes(12)}
                                 onChange={handleCheckboxChange}/>
+                                
                            <span>ADVENTURE</span>
+                           </div>
+                           <div className='ch3'>
                            <input type='checkbox' value="16" checked={genres.includes(16)}
                                 onChange={handleCheckboxChange}/>
                            <span>ANIMATION</span>
+                           </div>
+                           <div className='ch4'>
                            <input type='checkbox' value="35" checked={genres.includes(35)}
                                 onChange={handleCheckboxChange}/>
                            <span>COMEDY</span>
+                           </div>
+                           <div className='ch5'>
                            <input type='checkbox' value="80" checked={genres.includes(80)}
                                 onChange={handleCheckboxChange}/>
                            <span>CRIME</span>
+                           </div>
+                           <div className='ch6'>
                            <input type='checkbox' value="99" checked={genres.includes(99)}
                                 onChange={handleCheckboxChange}/>
                            <span>DOCUMENTARY</span>
+                           </div>
+                           <div className='ch7'>
                            <input type='checkbox' value="18" checked={genres.includes(18)}
                                 onChange={handleCheckboxChange}/>
                            <span>DRAMA</span>
+                           </div>
+                           <div className='ch8'>
                            <input type='checkbox' value="10751" checked={genres.includes(10751)}
                                 onChange={handleCheckboxChange}/>
                            <span>FAMILY</span>
+                           </div>
+                           <div className='ch9'>
                            <input type='checkbox' value="14" checked={genres.includes(14)}
                                 onChange={handleCheckboxChange}/>
                            <span>FANTASY</span>
+                           </div>
+                           <div className='ch10'>
                            <input type='checkbox' value="36" checked={genres.includes(36)}
                                 onChange={handleCheckboxChange}/>
                            <span>HISTORY</span>
+                           </div>
+                           <div className='ch11'>
                            <input type='checkbox' value="27" checked={genres.includes(27)}
                                 onChange={handleCheckboxChange}/>
                            <span>HORROR</span>
+                           </div>
+                           <div className='ch12'>
                            <input type='checkbox' value="10402" checked={genres.includes(10402)}
                                 onChange={handleCheckboxChange}/>
                            <span>MUSIC</span>
+                           </div>
+                           <div className='ch13'>
                            <input type='checkbox' value="9648" checked={genres.includes(9648)}
                                 onChange={handleCheckboxChange}/>
                            <span>MYSTERY</span>
+                           </div>
+                           <div className='ch14'>
                            <input type='checkbox' value="10749" checked={genres.includes(10749)}
                                 onChange={handleCheckboxChange}/>
                            <span>ROMANCE</span>
+                           </div>
+                           <div className='ch15'>
                            <input type='checkbox' value="878" checked={genres.includes(878)}
                                 onChange={handleCheckboxChange}/>
                            <span>SCIENCE_FICTION</span>
+                           </div>
+                           <div className='ch16'>
                            <input type='checkbox' value="10770" checked={genres.includes(10770)}
                                 onChange={handleCheckboxChange}/>
                            <span>TV_MOVIE</span>
+                           </div>
+                           <div className='ch17'>
                            <input type='checkbox' value="53" checked={genres.includes(53)}
                                 onChange={handleCheckboxChange}/>
                            <span>THRILLER</span>
+                           </div>
+                           <div className='ch18'>
                            <input type='checkbox' value="10752" checked={genres.includes(10752)}
                                 onChange={handleCheckboxChange}/>
                            <span>WAR</span>
+                           </div>
+                           <div className='ch19'>
                            <input type='checkbox' value="32" checked={genres.includes(32)}
                                 onChange={handleCheckboxChange}/>
                            <span>WESTERN</span>
+                           </div>
                         </td>
                     </tr>
                     <tr>

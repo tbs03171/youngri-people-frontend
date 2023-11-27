@@ -7,7 +7,8 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /*배경 설정*/
+  overflow: auto; /*배경 설정*/
+  overflow-y: scroll;
 }
 
 .mainLogo {
@@ -19,7 +20,7 @@
 .signupContainer {
   position: absolute;
   text-align: center;
-  top: 50%;
+  top: 450px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -153,6 +154,7 @@
   border: none;
   border-radius: 5px;
   color: white;
+  margin-bottom: 50px;
 }
 
 /*스크롤바 커스텀*/
@@ -182,4 +184,20 @@
 
 .birthdateField3::-webkit-scrollbar-track {
   background: #464545;  /*스크롤바 뒷 배경 색상*/
+}
+
+.joinBody::-webkit-scrollbar {
+	width: 10px;  /*스크롤바 너비 */
+}
+
+/* 스크롤바 막대 꾸미기 */
+.joinBody::-webkit-scrollbar-thumb {
+	height: 30%; /*스크롤바 길이 */
+  background: #b1adad; /*스크롤바 색상*/
+  border-radius: 10px;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+.joinBody::-webkit-scrollbar-track {
+	background: #212020;
 }

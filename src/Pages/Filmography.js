@@ -32,7 +32,6 @@ const Filmography=()=>{
             },
         })
         .then((response)=>{
-            console.log(response);
             if(response.status===200){
                 const filmographyMovieIdArr=[];
                 const filmographyMoviePosterArr=[];
@@ -52,45 +51,53 @@ const Filmography=()=>{
         })
     }, [personId]);
 
-    const displayFilmographyMovieData=()=>{
-        const filmographyMovieDataArr=[];
-        for(let i=0;i<filmographyMovieId.length;i++){
+    const displayFilmographyMovieData = () => {
+        const filmographyMovieDataArr = [];
+        for (let i = 0; i < filmographyMovieId.length; i++) {
             filmographyMovieDataArr.push(
-                <div className="movie-component">
-                    <img id="movie-poster"
+                <div className={styles.movieContainer}>
+                    <img
+                        id="movie-poster"
+                        className={styles.moviePoster}
                         src={filmographyMoviePoster[i]}
-                        onClick={(e)=>{navigate(`/movie-information/${filmographyMovieId[i]}`)}}
+                        onClick={(e) => {
+                            navigate(`/movie-information/${filmographyMovieId[i]}`);
+                        }}
                         alt={`${process.env.PUBLIC_URL}/img/alt.jpg`}
                     ></img>
-                    <h3 id="movie-title">{filmographyMovieTitle[i]}</h3>
+                    <h3 className={styles.movieTitle}>{filmographyMovieTitle[i]}</h3>
                 </div>
-            )
+            );
         }
         return filmographyMovieDataArr;
     }
 
     return(
-        <body>
-            <div className="top">
-                <div className="logo">
+        
+            <div className={styles.filmographyBody}>
+                <div className={styles.mainLogo}>
                     <img src={`${process.env.PUBLIC_URL}/img/main_logo.PNG`} onClick={goToMain} alt="로고 이미지"></img>
                 </div>
-                <div className="top_component">
-                    <div className="search_box">
-                        <button onClick={goToMovieSearch}>검색</button>
-                    </div>
-                    <div className="logout">
-                        <button onClick={logout}>로그아웃</button>
-                    </div>
-                </div>
+                <div className={styles.searchMovie}>
+                <button onClick={goToMovieSearch}>
+                    <img src={`${process.env.PUBLIC_URL}/img/search.png`}/>
+                </button>
             </div>
-            <div className="filmography-bottom">
+            <div className={styles.buttonLogout}>
+                <button onClick={logout}>로그아웃</button>
+            </div>
+                
+            
+
+            
+            <div className={styles.filmographyBottom}>
                 <h1>Filmography</h1>
-                <div className="filmogrphy-container">
+                <div className={styles.filmographyContainer}>
                     {displayFilmographyMovieData()}
                 </div>
             </div>
-        </body>
+            </div>
+        
     );
 }
 

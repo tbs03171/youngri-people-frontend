@@ -30,7 +30,6 @@ const Community=()=>{
         })
         .then((response)=>{
             if(response.status===200){
-                console.log(response);
                 let profilePathArr=[];
                 let nicknameArr=[];
                 let userIdArr=[];
@@ -50,7 +49,6 @@ const Community=()=>{
     },[])
 
     const displayProfileImg=(i)=>{
-        console.log(profilePath[i]);
         if(profilePath[i]==="1"){
             return <img onClick={(e) => navigate(`/user-page/${userId[i]}`)} src="img/profile/profile1.jpg" id="profile" alt="프로필 사진"></img>
         }
@@ -72,7 +70,9 @@ const Community=()=>{
     }
 
     const displayUserData=()=>{
-        console.log(profilePath);
+        if (nickname.length === 0) {
+            return <h3 className={styles.notice}>다른 사용자를 구독해보세요.</h3>
+        }
         const displayUserDataArr=[];
         for(let i=0;i<nickname.length;i++){
             displayUserDataArr.push(
@@ -104,7 +104,7 @@ const Community=()=>{
             </div>
 
             <div className={styles.communityBottom}>
-                <h1>커뮤니티</h1>
+                <h2>커뮤니티</h2>
                 <div className={styles.userContainer}>
                     {displayUserData()}
                 </div>
