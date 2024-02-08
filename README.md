@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# 영리한 사람들
+> #### 영남대학교 컴퓨터공학과<br>개발 기간 : 2023.08 ~ 2023.01
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 소개
+“영리한 사람들”은 영화 리뷰하는 사람들의 줄임말로, 영화 추천 및 리뷰 공유 웹사이트, 최신 영화 소식과 추천 영화를 제공하고 관객들의 다양한 의견을 공유할 수 있도록 도와주는 플랫폼입니다. 영화를 즐기는 사람들이 다양한 영화를 접하고 의견을 나눔으로써 더 큰 만족감을 느끼고, 주목 받지 못했던 영화들도 다시 주목 받을 수 있는 기회가 되기를 바라는 마음에 시작한 프로젝트입니다. 사용자는 다양한 영화들을 추천받고, 영화의 상세 정보를 확인하고, 영화에 대한 별점과 리뷰를 남길 수 있습니다. 또한, 다른 사용자를 구독하여 영화 감상평, 찜한 영화를 공유함으로써 다른 영화인들과 소통할 수 있습니다.
 
-## Available Scripts
+## 멤버 구성
+#### 백엔드
+> * __조가을 : 로그인, 회원가입, 마이페이지, 커뮤니티, 영화 찜하기__
+> * __박현정 : DB 설계, 영화 관련 기능, 배포__
+> * __김도형 : 리뷰 crud, 리뷰 좋아요 기능__
 
-In the project directory, you can run:
+#### 프론트엔드
+> * __이정민: 메인, 영화 정보, 필모그래피, 장르, 영화 검색 화면 구현__
+> * __이채윤: 마이페이지, 마이페이지 수정, 유저 페이지, 리뷰 수정 화면 구현__
+> * __박지혜: 홈, 로그인, 회원가입, 커뮤니티, 구독, 사용자 검색 화면 구현__
 
-### `npm start`
+## 사용 기술
+* __언어__<br>
+  <img src="https://img.shields.io/badge/Java-3776AB?style=for-the-badge&logoColor=white">
+  
+* __프레임워크__<br>
+  <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white">
+  <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=for-the-badge&logo=Spring Security&logoColor=white">
+  <img src="https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* __데이터베이스 / 캐시__<br>
+  <img src="https://img.shields.io/badge/H2 Database-4053D6?style=for-the-badge&logoColor=white">
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=Redis&logoColor=white">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* __테스트__<br>
+  <img src="https://img.shields.io/badge/Junit5-25A162?style=for-the-badge&logo=Junit5&logoColor=white">
 
-### `npm test`
+* __협업__<br>
+  <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white">
+  <img src="https://img.shields.io/badge/swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=white">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* __배포__<br>
+  <img src="https://img.shields.io/badge/AWS EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white">
+  <img src="https://img.shields.io/badge/AWS RDS-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white">
 
-### `npm run build`
+* __도구__<br>
+  <img src="https://img.shields.io/badge/intellij idea-000000?style=for-the-badge&logo=intellijidea&logoColor=white">
+  <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ERD
+<img width="80px">![alt ERD](/ERD.png)</img>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## API 명세서
+[API 명세서](https://documenter.getpostman.com/view/29229350/2s9YywfKjS)
